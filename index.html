@@ -9,13 +9,21 @@
     <meta property="og:description" content="Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.">
     <meta property="og:image" content="assets/Card.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
+        
         :root {
             --accent: #ff2e83;
-            --text: #111111;
-            --muted: #666666;
+            --accent-light: #ff4a9c;
+            --accent-dark: #e6256f;
+            --text: #1a1a1a;
+            --text-light: #4a4a4a;
+            --muted: #737373;
             --bg: #ffffff;
-            --border: #f0f0f0;
-            --light-bg: #fafafa;
+            --bg-cream: #fdf9f5;
+            --bg-pink: #fff5fa;
+            --border: #e5e5e5;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-heavy: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -25,10 +33,13 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.65;
             color: var(--text);
             background: var(--bg);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -39,281 +50,646 @@
 
         /* Header */
         header {
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-cream) 100%);
             border-bottom: 1px solid var(--border);
-            background: white;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(255, 46, 131, 0.08);
         }
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            max-width: 1100px;
+            padding: 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             text-decoration: none;
             color: var(--text);
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 800;
+            font-size: 20px;
+            font-family: 'Playfair Display', serif;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
         }
 
         .logo img {
-            height: 40px;
+            height: 45px;
             width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(255, 46, 131, 0.2);
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
         }
 
         nav a {
-            margin-left: 24px;
             text-decoration: none;
             color: var(--text);
             font-weight: 600;
-            transition: color 0.2s;
+            font-size: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
             color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #fff 0%, var(--light-bg) 100%);
+            padding: 100px 0 120px;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 46, 131, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 74, 156, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-cream) 0%, var(--bg) 50%, var(--bg-pink) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '"Turning dating disasters into comedy gold"';
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--muted);
+            opacity: 0.6;
+            transform: rotate(5deg);
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero-image {
             text-align: center;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+            z-index: 0;
         }
 
         .hero-image img {
-            max-width: 320px;
+            max-width: 350px;
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+            transform: rotate(-2deg);
+            transition: transform 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image:hover img {
+            transform: rotate(0deg) scale(1.05);
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-content h1::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -40px;
+            font-size: 2rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
         }
 
         .tagline {
-            font-size: 1.3rem;
-            color: var(--muted);
-            margin-bottom: 25px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-light);
+            margin-bottom: 35px;
             font-weight: 400;
+            max-width: 500px;
+            font-style: italic;
         }
 
         .awards {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 20px;
+            align-items: center;
         }
 
         .badge {
-            background: linear-gradient(135deg, var(--accent), #ff4a9c);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 14px;
-            display: inline-block;
-            margin-right: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 15px rgba(255, 46, 131, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 
+                0 8px 25px rgba(255, 46, 131, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .badge:hover::before {
+            left: 100%;
+        }
+
+        .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 46, 131, 0.5);
+        }
+
+        .award-text {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 15px;
         }
 
         .cta-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 16px 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
             font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
-            box-shadow: 0 6px 20px rgba(255, 46, 131, 0.4);
+            box-shadow: 
+                0 8px 25px rgba(255, 46, 131, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 46, 131, 0.5);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 46, 131, 0.6);
         }
 
         .btn-secondary {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             color: var(--text);
             border: 2px solid var(--border);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
             color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: 0 12px 35px rgba(255, 46, 131, 0.2);
         }
 
         /* About Joy Section */
         .about-section {
-            padding: 80px 0;
-            background: white;
+            padding: 120px 0;
+            background: 
+                linear-gradient(135deg, var(--bg) 0%, var(--bg-cream) 100%);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '💫';
+            position: absolute;
+            top: 60px;
+            left: 30px;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 60px;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
         }
 
         .about-image img {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 0 8px rgba(255, 255, 255, 0.8),
+                0 0 0 12px rgba(255, 46, 131, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 8px rgba(255, 255, 255, 0.9),
+                0 0 0 15px rgba(255, 46, 131, 0.2);
         }
 
         .about-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 30px;
             color: var(--text);
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
         }
 
         .about-content p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--muted);
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.7;
         }
 
         .personality-highlight {
-            background: linear-gradient(135deg, var(--light-bg), #fff);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-left: 5px solid var(--accent);
+            background: 
+                linear-gradient(135deg, var(--bg-pink) 0%, rgba(255, 255, 255, 0.8) 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 35px 0;
+            border: 1px solid rgba(255, 46, 131, 0.1);
+            border-left: 6px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 46, 131, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .personality-highlight::before {
+            content: '💅';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .personality-highlight p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text);
+            font-size: 17px;
         }
 
         /* Podcast Section */
         .podcast-section {
-            padding: 80px 0;
-            background: var(--light-bg);
+            padding: 120px 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 46, 131, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-cream) 0%, var(--bg) 100%);
+            position: relative;
+        }
+
+        .podcast-section::before {
+            content: '🎙️';
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.4; }
         }
 
         .podcast-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 25px;
             text-align: center;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .podcast-subtitle {
-            font-size: 1.2rem;
-            color: var(--muted);
-            margin-bottom: 40px;
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 60px;
             text-align: center;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .podcast-card {
             display: flex;
             align-items: center;
-            gap: 30px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 800px;
+            gap: 40px;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.5);
+            max-width: 900px;
             margin: 0 auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 46, 131, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .podcast-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 46, 131, 0.05), transparent);
+            transition: left 0.8s;
+        }
+
+        .podcast-card:hover::before {
+            left: 100%;
         }
 
         .podcast-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 15px;
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
             object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .podcast-card:hover img {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .podcast-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .podcast-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .podcast-schedule {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 25px;
         }
 
         .podcast-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
             flex-wrap: wrap;
         }
 
         /* Latest Updates */
         .updates-section {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-cream) 100%);
+            position: relative;
+        }
+
+        .updates-section::before {
+            content: '📰';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 2.5rem;
+            opacity: 0.2;
         }
 
         .updates-section h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 50px;
             text-align: center;
+            color: var(--text);
         }
 
         .update-card {
-            background: var(--light-bg);
-            padding: 25px 30px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent);
-            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px 35px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid var(--accent);
+            font-size: 17px;
+            line-height: 1.6;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 46, 131, 0.15);
         }
 
         /* Reviews Section */
         .reviews-section {
-            padding: 80px 0;
-            background: var(--light-bg);
+            padding: 100px 0;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(255, 46, 131, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-pink) 0%, var(--bg) 100%);
         }
 
         .reviews-section h3 {
-            font-size: 2rem;
-            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 60px;
             text-align: center;
+            color: var(--text);
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 900px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .review-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 35px 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
             font-style: italic;
             position: relative;
+            border: 1px solid rgba(255, 46, 131, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 46, 131, 0.2);
         }
 
         .review-card::before {
@@ -321,111 +697,171 @@
             font-size: 4rem;
             color: var(--accent);
             position: absolute;
-            top: -10px;
-            left: 20px;
+            top: -5px;
+            left: 25px;
             font-weight: bold;
+            opacity: 0.7;
+        }
+
+        .review-card p:first-child {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .review-card p:last-child {
+            margin: 0;
+            font-weight: 700;
+            color: var(--accent);
+            font-style: normal;
+            font-size: 16px;
         }
 
         /* Media Kit Section */
         .media-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--accent), #ff4a9c);
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
         }
 
         .media-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .media-section p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            opacity: 0.9;
+            font-size: 20px;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
 
         .media-ctas {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-white {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             color: var(--accent);
             border: 2px solid transparent;
+            backdrop-filter: blur(10px);
         }
 
         .btn-white:hover {
             background: transparent;
             color: white;
             border-color: white;
+            transform: translateY(-3px);
         }
 
         /* Newsletter */
         .newsletter-section {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg) 100%);
             text-align: center;
         }
 
         .newsletter-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 25px;
             color: var(--text);
         }
 
         .newsletter-subtitle {
-            font-size: 1.2rem;
-            color: var(--muted);
-            margin-bottom: 40px;
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         .newsletter-form {
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
+            padding: 0 20px;
         }
 
         .newsletter-form input {
             flex: 1;
-            min-width: 200px;
-            padding: 16px 20px;
+            min-width: 220px;
+            padding: 18px 24px;
             border: 2px solid var(--border);
             border-radius: 50px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .newsletter-form input:focus {
             outline: none;
             border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 46, 131, 0.1);
         }
 
         .newsletter-form button {
-            padding: 16px 30px;
-            background: var(--accent);
+            padding: 18px 35px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
             border: none;
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 46, 131, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(255, 46, 131, 0.4);
+            font-size: 16px;
         }
 
         .newsletter-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 46, 131, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 46, 131, 0.5);
         }
 
         /* Footer */
         footer {
-            padding: 50px 0;
+            padding: 80px 0 40px;
             background: var(--text);
             color: white;
             text-align: center;
@@ -434,53 +870,165 @@
         .footer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
         }
 
         .footer-section h4 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--accent);
+            font-size: 18px;
+            font-weight: 700;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 25px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .social-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            font-size: 15px;
         }
 
         .social-links a:hover {
             color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            opacity: 0.7;
+            font-size: 14px;
         }
 
         /* Responsive */
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            nav {
+                gap: 20px;
+            }
+            
+            nav a {
+                font-size: 14px;
+            }
+            
+            .hero {
+                padding: 80px 0 100px;
+            }
+            
+            .hero::before {
+                display: none;
+            }
+            
+            .hero-grid {
+                gap: 40px;
+                padding: 0 20px;
+            }
+            
+            .hero-content h1::after {
+                display: none;
+            }
+            
+            .awards {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+            
+            .about-section, .podcast-section, .updates-section, .reviews-section {
+                padding: 80px 0;
+            }
+            
+            .about-section::before, .podcast-section::before, .updates-section::before {
+                display: none;
+            }
+            
+            .about-grid, .podcast-card {
+                padding: 0 20px;
+            }
+            
+            .podcast-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+            }
+            
+            .podcast-content h3 {
+                font-size: 22px;
+            }
+            
+            .personality-highlight {
+                padding: 25px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .newsletter-form input {
+                min-width: auto;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 769px) {
             .hero-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 60px;
+                gap: 80px;
             }
 
             .hero-content h1 {
-                font-size: 3.5rem;
+                font-size: clamp(3.5rem, 5vw, 4.5rem);
             }
 
             .about-grid {
-                grid-template-columns: 250px 1fr;
-                gap: 50px;
+                grid-template-columns: 280px 1fr;
+                gap: 80px;
             }
 
             .about-image {
                 text-align: center;
             }
-
+            
             .newsletter-form {
                 flex-wrap: nowrap;
             }
@@ -497,7 +1045,11 @@
 
         @media (min-width: 1024px) {
             .hero-content h1 {
-                font-size: 4rem;
+                font-size: 4.5rem;
+            }
+            
+            .container {
+                padding: 0 40px;
             }
         }
     </style>
@@ -532,11 +1084,11 @@
                         <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.</p>
                         <div class="awards">
                             <span class="badge">🏆 Winner — Writer's Digest Humor</span>
-                            <span style="color: var(--muted); font-weight: 600;">• LA Book Festival Honorable Mention • Readers' Favorite Finalist</span>
+                            <span class="award-text">• LA Book Festival Honorable Mention • Readers' Favorite Finalist</span>
                         </div>
                         <div class="cta-buttons">
-                            <a href="#" class="btn btn-primary">Get the Book</a>
-                            <a href="#podcast" class="btn btn-secondary">Listen to The Worstship</a>
+                            <a href="#" class="btn btn-primary">📖 Get the Book</a>
+                            <a href="#podcast" class="btn btn-secondary">🎙️ Listen to The Worstship</a>
                         </div>
                     </div>
                 </div>
@@ -573,14 +1125,14 @@
                 <p class="podcast-subtitle">Breakups are messy. Let's laugh about it.</p>
                 <div class="podcast-card">
                     <img src="assets/The Worstship.png" alt="The Worstship podcast">
-                    <div>
-                        <h3 style="margin-bottom: 15px; color: var(--accent);">Latest Episodes</h3>
-                        <p style="font-size: 1.1rem; margin-bottom: 10px;">Raw, funny conversations about messy breakups and bad relationships. Guests spill their worst dating stories while we laugh, cringe, and learn a little.</p>
-                        <p style="color: var(--muted);">New episodes every Tuesday</p>
+                    <div class="podcast-content">
+                        <h3>Latest Episodes</h3>
+                        <p>Raw, funny conversations about messy breakups and bad relationships. Guests spill their worst dating stories while we laugh, cringe, and learn a little.</p>
+                        <p class="podcast-schedule">New episodes every Tuesday</p>
                         <div class="podcast-links">
-                            <a href="#" class="btn btn-secondary">Listen on Spotify</a>
-                            <a href="#" class="btn btn-secondary">Listen on Apple</a>
-                            <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-secondary">Be a Guest</a>
+                            <a href="#" class="btn btn-secondary">🎵 Spotify</a>
+                            <a href="#" class="btn btn-secondary">🍎 Apple</a>
+                            <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-secondary">💌 Be a Guest</a>
                         </div>
                     </div>
                 </div>
@@ -610,15 +1162,15 @@
                 <div class="reviews-grid">
                     <div class="review-card">
                         <p>An Oscar Wilde for the gig economy. Joy's wit cuts through the chaos of modern dating with surgical precision.</p>
-                        <p style="margin-top: 15px; font-weight: 700; color: var(--accent);">— Wallace George</p>
+                        <p>— Wallace George</p>
                     </div>
                     <div class="review-card">
                         <p>Literally made me laugh out loud on a plane. The person next to me thought I was having a breakdown.</p>
-                        <p style="margin-top: 15px; font-weight: 700; color: var(--accent);">— Sachi</p>
+                        <p>— Sachi</p>
                     </div>
                     <div class="review-card">
                         <p>Fearless, funny, refreshingly real. Joy turns messy moments into empowering lessons.</p>
-                        <p style="margin-top: 15px; font-weight: 700; color: var(--accent);">— Amanda P.</p>
+                        <p>— Amanda P.</p>
                     </div>
                 </div>
             </div>
@@ -630,9 +1182,9 @@
                 <h3>Work With Joy</h3>
                 <p>Ready for interviews, speaking engagements, collaborations, and podcast appearances. Professional media kit and high-res photos available.</p>
                 <div class="media-ctas">
-                    <a href="mailto:press@joyalicia.com" class="btn btn-white">Media Inquiries</a>
-                    <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-white">Podcast Bookings</a>
-                    <a href="#" class="btn btn-white">Download Media Kit</a>
+                    <a href="mailto:press@joyalicia.com" class="btn btn-white">📧 Media Inquiries</a>
+                    <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-white">🎙️ Podcast Bookings</a>
+                    <a href="#" class="btn btn-white">📁 Download Media Kit</a>
                 </div>
             </div>
         </section>
@@ -646,40 +1198,40 @@
                     <input type="text" name="first" placeholder="First name" required>
                     <input type="email" name="email" placeholder="Email address" required>
                     <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit">Join the Club</button>
+                    <button type="submit">💌 Join the Club</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="#">TikTok</a>
-                        <a href="#">Twitter</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Listen</h4>
-                    <div class="social-links">
-                        <a href="#">Spotify</a>
-                        <a href="#">Apple Podcasts</a>
-                        <a href="#">Google Podcasts</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <div class="social-links">
-                        <a href="mailto:press@joyalicia.com">Media</a>
-                        <a href="mailto:theworstshippodcast@gmail.com">Podcast</a>
-                    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#">📸 Instagram</a>
+                    <a href="#">🎵 TikTok</a>
+                    <a href="#">🐦 Twitter</a>
                 </div>
             </div>
-            <p style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #333; opacity: 0.7;">&copy; 2025 Joy Alicia. All rights reserved. Made with ❤️ and a lot of bad dates.</p>
+            <div class="footer-section">
+                <h4>Listen</h4>
+                <div class="social-links">
+                    <a href="#">🎵 Spotify</a>
+                    <a href="#">🍎 Apple Podcasts</a>
+                    <a href="#">📻 Google Podcasts</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <div class="social-links">
+                    <a href="mailto:press@joyalicia.com">📧 Media</a>
+                    <a href="mailto:theworstshippodcast@gmail.com">🎙️ Podcast</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joy Alicia. All rights reserved. Made with ❤️ and a lot of bad dates.</p>
         </div>
     </footer>
 
