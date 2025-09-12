@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="index.html">Joy Alicia</a>
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="Joy Alicia logo">Joy Alicia</a>
       <nav class="nav">
         <a href="book.html">Book</a>
         <a href="podcast.html">Podcast</a>
@@ -28,18 +28,21 @@
       <div class="wrap hero-grid">
         <div class="hero-cover">
           <picture>
+            <!-- Immediate fallback to the uploaded AVIF while optimized files are generated -->
+            <source srcset="assets/Cover.avif" type="image/avif">
+            <source srcset="assets/optimized/book-cover-1200.avif" type="image/avif">
             <source srcset="assets/optimized/book-cover-1200.webp" type="image/webp">
             <source srcset="assets/optimized/book-cover-1200.jpg" type="image/jpeg">
-            <img src="assets/book-cover.jpg" alt="So Drunk A Tooth's Gotta Go — book cover">
+            <img src="assets/Cover.avif" alt="So Drunk A Tooth's Gotta Go  book cover">
           </picture>
         </div>
         <div class="hero-copy">
           <h1>So Drunk A Tooth’s Gotta Go</h1>
           <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life’s glorious disasters.</p>
-          <p class="awards">Winner — Writer’s Digest Humor • LA Book Festival Honorable Mention • Readers’ Favorite Finalist</p>
+          <p class="awards"><span class="badge">🏆 Winner — Writer’s Digest Humor</span>  • LA Book Festival Honorable Mention • Readers’ Favorite Finalist</p>
           <div class="hero-ctas">
             <a class="btn primary" href="book.html">Get the Book</a>
-            <a class="btn" href="podcast.html">Listen to The Worstship</a>
+            <a class="btn secondary" href="podcast.html">Listen to The Worstship</a>
           </div>
         </div>
       </div>
@@ -48,8 +51,8 @@
     <section class="podcast-spotlight wrap">
       <h2>The Worstship</h2>
       <p class="lead">Breakups are messy. Let’s laugh about it.</p>
-      <div class="podcast-card">
-        <img src="assets/podcast-cover.jpg" alt="The Worstship podcast cover" style="width:120px;height:auto">
+  <div class="podcast-card">
+  <img src="assets/podcast.png" alt="The Worstship podcast cover" style="width:120px;height:auto">
         <div>
           <p>Raw, funny conversations about messy breakups and bad relationships. <a href="podcast.html">Listen to the latest episode.</a></p>
           <div class="inline-ctas">
@@ -73,9 +76,12 @@
     <section class="about-tease wrap">
       <div class="about-tease-grid">
         <picture>
+          <!-- Fallback to uploaded AVIF headshot while optimized images are generated -->
+          <source srcset="assets/Joy.avif" type="image/avif">
+          <source srcset="assets/optimized/headshot-400.avif" type="image/avif">
           <source srcset="assets/optimized/headshot-400.webp" type="image/webp">
           <source srcset="assets/optimized/headshot-400.jpg" type="image/jpeg">
-          <img class="headshot" src="assets/headshot.jpg" alt="Joy Alicia smiling headshot">
+          <img class="headshot" src="assets/Joy.avif" alt="Joy Alicia smiling headshot">
         </picture>
         <div>
           <h3>About Joy</h3>

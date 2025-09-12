@@ -26,9 +26,18 @@ if(-not (Get-Command magick -ErrorAction SilentlyContinue)){
 
 New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null
 
-$book = Join-Path $SourceDir "book-cover.jpg"
-$head = Join-Path $SourceDir "headshot.jpg"
-$pod = Join-Path $SourceDir "podcast-cover.jpg"
+function Get-FirstExisting($dir, $names){
+  foreach($n in $names){
+    $p = Join-Path $dir $n
+    if(Test-Path $p){ return $p }
+  }
+  return $null
+}
+
+# Accept common source filenames and AVIF/PNG variants
+$book = Get-FirstExisting $SourceDir @('book-cover.jpg','book-cover.png','book-cover.avif','Cover.avif','book.jpg')
+$head = Get-FirstExisting $SourceDir @('headshot.jpg','headshot.png','headshot.avif','Joy.avif','joy.avif')
+$pod = Get-FirstExisting $SourceDir @('podcast-cover.jpg','podcast-cover.png','podcast-cover.avif','podcast.png')
 
 if(Test-Path $book){
   magick "$book" -resize 1200x1200\> "$OutputDir/book-cover-1200.jpg"
@@ -38,6 +47,10 @@ if(Test-Path $book){
   magick "$book" -resize 1200x1200\> "$OutputDir/book-cover-1200.webp"
   magick "$book" -resize 800x800\> "$OutputDir/book-cover-800.webp"
   magick "$book" -resize 400x400\> "$OutputDir/book-cover-400.webp"
+  # AVIF variants (if ImageMagick built with AVIF support)
+  magick "$book" -resize 1200x1200\> "$OutputDir/book-cover-1200.avif"
+  magick "$book" -resize 800x800\> "$OutputDir/book-cover-800.avif"
+  magick "$book" -resize 400x400\> "$OutputDir/book-cover-400.avif"
 } else { Write-Warning "$book not found. Place the book cover as book-cover.jpg in assets/" }
 
 if(Test-Path $head){
@@ -46,6 +59,9 @@ if(Test-Path $head){
   # WebP variants
   magick "$head" -resize 800x800\> "$OutputDir/headshot-800.webp"
   magick "$head" -resize 400x400\> "$OutputDir/headshot-400.webp"
+  # AVIF variants
+  magick "$head" -resize 800x800\> "$OutputDir/headshot-800.avif"
+  magick "$head" -resize 400x400\> "$OutputDir/headshot-400.avif"
 } else { Write-Warning "$head not found. Place the headshot as headshot.jpg in assets/" }
 
 if(Test-Path $pod){
@@ -53,17 +69,26 @@ if(Test-Path $pod){
   magick "$pod" -resize 400x400\> "$OutputDir/podcast-cover-400.jpg"
   magick "$pod" -resize 800x800\> "$OutputDir/podcast-cover-800.webp"
   magick "$pod" -resize 400x400\> "$OutputDir/podcast-cover-400.webp"
+  # AVIF variants
+  magick "$pod" -resize 800x800\> "$OutputDir/podcast-cover-800.avif"
+  magick "$pod" -resize 400x400\> "$OutputDir/podcast-cover-400.avif"
 } else { Write-Warning "$pod not found. (Optional) Place podcast-cover.jpg in assets/ to generate podcast variants." }
 
 # Generate simple OG image by compositing headshot onto cover with accent bar (basic)
 if(Test-Path $book -and Test-Path $head){
   $og = Join-Path $OutputDir "og-image.jpg"
-  magick "$book" -resize 1200x1200\> miff:- | magick - -gravity center -extent 1200x630 -background white miff:- \
-    \( "$head" -resize 240x240 \) -gravity southeast -geometry +40+40 -composite -fill "#ff2e83" -draw "rectangle 0,560 1200,630" "$og"
-  # create webp OG
+  $tmpBase = Join-Path $OutputDir "__og-base.jpg"
+  # create a centered, 1200x630 base from the book cover
+  magick "$book" -resize 1200x1200\> -gravity center -background white -extent 1200x630 "$tmpBase"
+  # composite the headshot resized onto the base
+  magick "$tmpBase" "$head" -resize 240x240 -gravity southeast -geometry +40+40 -composite -fill "#ff2e83" -draw "rectangle 0,560 1200,630" "$og"
+  Remove-Item $tmpBase -ErrorAction SilentlyContinue
+  # create webp and avif OG
   $ogwebp = Join-Path $OutputDir "og-image.webp"
   magick "$og" "$ogwebp"
-  Write-Output "OG image created: $og and $ogwebp"
+  $ogavif = Join-Path $OutputDir "og-image.avif"
+  magick "$og" "$ogavif"
+  Write-Output "OG image created: $og, $ogwebp and $ogavif"
 } else { Write-Warning "Skipping OG image: source files missing." }
 
 Write-Output "Optimization complete. Check $OutputDir for generated images."
