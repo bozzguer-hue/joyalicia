@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="600" viewBox="0 0 2400 600">
+  <rect width="2400" height="600" fill="white" rx="40" ry="40"/>
+  <!-- Name -->
+  <text x="280" y="340" font-family="Montserrat,Arial,Helvetica,sans-serif" font-weight="900" font-size="180" fill="black" letter-spacing="6">JOY ALICIA</text>
+  <!-- Hearts Icon -->
+  <g transform="translate(1500,120) scale(1.2)">
+    <path d="M300 160
+             C300 120 328 90 368 90
+             C428 90 468 140 468 200
+             C468 320 348 400 300 460
+             C252 400 132 320 132 200
+             C132 140 172 90 232 90
+             C272 90 300 120 300 160 Z"
+          fill="#FF2E83"/>
+    <path d="M460 260
+             C460 220 488 190 528 190
+             C588 190 628 240 628 300
+             C628 420 508 500 460 560
+             C412 500 292 420 292 300
+             C292 240 332 190 392 190
+             C432 190 460 220 460 260 Z"
+          fill="#FF2E83"/>
+    <!-- Orbit arc -->
+    <path d="M180 280 C340 400 500 380 640 260" fill="none" stroke="#FF2E83" stroke-width="20" stroke-linecap="round"/>
+  </g>
+  <!-- Subtitle -->
+  <text x="280" y="460" font-family="Montserrat,Arial,Helvetica,sans-serif" font-weight="500" font-size="66" fill="black" letter-spacing="4">Author | Podcaster | Dating Coach</text>
+</svg>
