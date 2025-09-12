@@ -9,27 +9,36 @@
 }
 *{box-sizing:border-box}
 .body-font{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+/* Fonts: prefer system, optional Google fonts if connected */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Archivo+Black&display=swap');
+
 body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--text); background:var(--bg); margin:0; line-height:1.6;font-size:16px}
 .wrap{max-width:var(--max-width); margin:0 auto; padding:20px}
-.site-header{border-bottom:1px solid #eee}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:700;text-decoration:none;color:var(--text)}
-.nav a{margin-left:16px;text-decoration:none;color:var(--text)}
-.hero{padding:28px 0}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:center}
+.site-header{border-bottom:1px solid #f0f0f0;background:#fff}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
+.brand{font-weight:700;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px}
+.brand img{height:36px}
+.nav a{margin-left:18px;text-decoration:none;color:var(--text);font-weight:600}
+.hero{padding:36px 0}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 .hero-cover img{width:100%;max-width:320px;border-radius:6px;display:block}
-.hero-copy h1{font-size:1.6rem;margin:0}
+.hero-copy h1{font-family:'Archivo Black', Bebas Neue, 'Helvetica Neue', Arial; font-size:2rem;margin:0;color:var(--text)}
 .tagline{color:var(--muted);margin:8px 0}
-.awards{font-size:0.9rem;color:var(--muted)}
-.btn{display:inline-block;padding:10px 14px;border-radius:var(--radius);text-decoration:none;color:var(--text);border:1px solid #ddd;background:#fff}
-.btn.primary{background:var(--accent);color:#fff;border:none}
+.awards{font-size:0.95rem;color:var(--muted);margin-top:6px}
+.badge{background:linear-gradient(90deg,var(--accent),#ff4a9c);color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;margin-right:8px}
+.btn{display:inline-block;padding:12px 18px;border-radius:999px;text-decoration:none;color:var(--text);border:1px solid #eee;background:#fff;font-weight:600}
+.btn.primary{background:var(--accent);color:#fff;border:none;box-shadow:0 6px 18px rgba(255,46,131,0.12)}
+.btn.secondary{background:#fff;border:1px solid #eee}
 .podcast-spotlight{padding:12px 0}
 .podcast-card{display:flex;gap:12px;align-items:center}
 .headshot{width:88px;border-radius:8px}
 .about-tease-grid{display:grid;grid-template-columns:88px 1fr;gap:12px;align-items:center}
 .reviews blockquote{background:#fafafa;border-left:4px solid var(--accent);padding:10px 12px;margin:12px 0}
-.newsletter-form{display:flex;flex-wrap:wrap;gap:8px}
-.newsletter-form input{padding:8px;border:1px solid #ddd;border-radius:6px}
+.newsletter-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.newsletter-form input{padding:12px;border:1px solid #eee;border-radius:999px}
+.form-msg{margin-top:8px;padding:10px;border-radius:6px}
+.form-msg.success{background:#e6ffef;border:1px solid #c6f5d8;color:#006644}
+.form-msg.error{background:#fff0f0;border:1px solid #ffd6d6;color:#7a1b1b}
 .site-footer{border-top:1px solid #eee;padding:20px 0;margin-top:40px}
 
 /* Latest rotator */
