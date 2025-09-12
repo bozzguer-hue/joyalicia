@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Joy Alicia — Author, Comedian & Host of The Worstship</title>
+  <meta name="description" content="Award-winning author and comedian Joy Alicia. So Drunk A Tooth’s Gotta Go—hilarious essays on dating, ghosting, travel & the gig economy. Listen to The Worstship podcast.">
+  <meta property="og:title" content="Joy Alicia — So Drunk A Tooth’s Gotta Go">
+  <meta property="og:description" content="Hilarious, unapologetic essays about dating, ghosting & life’s glorious disasters.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Joy Alicia</a>
+      <nav class="nav">
+        <a href="book.html">Book</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-cover">
+          <picture>
+            <source srcset="assets/optimized/book-cover-1200.webp" type="image/webp">
+            <source srcset="assets/optimized/book-cover-1200.jpg" type="image/jpeg">
+            <img src="assets/book-cover.jpg" alt="So Drunk A Tooth's Gotta Go — book cover">
+          </picture>
+        </div>
+        <div class="hero-copy">
+          <h1>So Drunk A Tooth’s Gotta Go</h1>
+          <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life’s glorious disasters.</p>
+          <p class="awards">Winner — Writer’s Digest Humor • LA Book Festival Honorable Mention • Readers’ Favorite Finalist</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="book.html">Get the Book</a>
+            <a class="btn" href="podcast.html">Listen to The Worstship</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="podcast-spotlight wrap">
+      <h2>The Worstship</h2>
+      <p class="lead">Breakups are messy. Let’s laugh about it.</p>
+      <div class="podcast-card">
+        <img src="assets/podcast-cover.jpg" alt="The Worstship podcast cover" style="width:120px;height:auto">
+        <div>
+          <p>Raw, funny conversations about messy breakups and bad relationships. <a href="podcast.html">Listen to the latest episode.</a></p>
+          <div class="inline-ctas">
+            <a class="btn" href="#">Listen on Spotify</a>
+            <a class="btn" href="#">Listen on Apple</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="latest wrap">
+      <h3>Latest Laughs</h3>
+      <div id="latest-rotator" class="rotator">
+        <article class="card">🎙️ <strong>New Episode:</strong> When Your Ex Texts “U Up?” — <a href="podcast.html">Listen now</a></article>
+        <article class="card">📰 <strong>Press:</strong> Featured in Newsweek — Dating in the Gig Economy — <a href="media.html">Read</a></article>
+        <article class="card">🎤 <strong>On Stage:</strong> Los Angeles set, [Date] — <a href="#">Get tickets</a></article>
+      </div>
+      <a class="btn" href="#">All Updates</a>
+    </section>
+
+    <section class="about-tease wrap">
+      <div class="about-tease-grid">
+        <picture>
+          <source srcset="assets/optimized/headshot-400.webp" type="image/webp">
+          <source srcset="assets/optimized/headshot-400.jpg" type="image/jpeg">
+          <img class="headshot" src="assets/headshot.jpg" alt="Joy Alicia smiling headshot">
+        </picture>
+        <div>
+          <h3>About Joy</h3>
+          <p>Joy Alicia is a writer, stand-up comic, podcast host, and founder of Online Dating Savior. She turns dating disasters into essays and stand-up—often while spoiling her avoidantly attached dog.</p>
+          <a class="btn" href="about.html">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews wrap">
+      <h3>What readers are saying</h3>
+      <blockquote>“An Oscar Wilde for the gig economy.” — Wallace George</blockquote>
+      <blockquote>“Literally made me laugh out loud.” — Sachi</blockquote>
+    </section>
+
+    <section class="newsletter wrap">
+      <h3>Join the Bad Date Club</h3>
+      <p>Bad dates make the best stories. Get essays, podcast extras, and occasional chaos.</p>
+      <form class="newsletter-form" action="/api/form-proxy" method="post">
+        <input name="first" placeholder="First name" aria-label="First name">
+        <input name="email" type="email" placeholder="Email" aria-label="Email">
+        <input type="text" name="_gotcha" style="display:none">
+        <button class="btn primary" type="submit">Join the Club</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p>Follow Joy for laughs, chaos & comedy.</p>
+        <nav class="socials">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Spotify</a>
+        </nav>
+      </div>
+      <div>
+        <p>&copy; Joy Alicia</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Rotate "Latest" cards every 4s
+    (function(){
+      const rotator = document.getElementById('latest-rotator');
+      if(!rotator) return;
+      const cards = Array.from(rotator.children);
+      let idx = 0;
+      cards.forEach((c,i)=>{ if(i!==0) c.style.display='none'; });
+      setInterval(()=>{
+        cards[idx].style.display='none';
+        idx = (idx+1) % cards.length;
+        cards[idx].style.display='block';
+      },4000);
+    })();
+  </script>
+    <script src="scripts/forms.js"></script>
+</body>
+</html>

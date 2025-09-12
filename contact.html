@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Joy Alicia</title>
+  <meta name="description" content="Contact Joy Alicia for media, bookings, collaborations, and podcast guest inquiries.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Joy Alicia</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="book.html">Book</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap contact-page">
+    <h1>Contact</h1>
+    <div class="contact-grid">
+      <div>
+        <h3>Media & Bookings</h3>
+        <p><a href="mailto:press@joyalicia.com">press@joyalicia.com</a></p>
+
+        <h3>Podcast Guests</h3>
+        <p><a href="mailto:theworstshippodcast@gmail.com">theworstshippodcast@gmail.com</a></p>
+      </div>
+
+      <form class="contact-form" action="/api/form-proxy" method="post">
+        <label>Name <input name="name" required></label>
+        ><label>Email <input name="email" type="email" required></label>
+        <label>Subject
+          <select name="subject">
+            <option>Media / Press</option>
+            <option>Booking</option>
+            <option>Podcast Guest</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Message <textarea name="message" rows="6"></textarea></label>
+        <input type="text" name="_gotcha" style="display:none">
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; Joy Alicia</p>
+    </div>
+  </footer>
+  <script src="scripts/forms.js"></script>
+</body>
+</html>

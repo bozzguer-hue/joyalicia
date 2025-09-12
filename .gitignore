@@ -1,0 +1,10 @@
+# Ignore Markdown files per request
+*.md
+
+# Node / Editor / OS
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Optimized assets (if you prefer not to commit)
+assets/optimized/
