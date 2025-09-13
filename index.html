@@ -264,6 +264,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             position: relative;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .hero-content h1::after {
@@ -377,7 +378,7 @@
             top: 50%;
             transform: translateY(-50%) rotate(15deg);
             background: linear-gradient(135deg, var(--coral), var(--pink));
-            color: white;
+            color: #1a1a1a;
             padding: 15px 20px;
             border-radius: 20px;
             font-family: 'Playfair Display', serif;
@@ -387,8 +388,8 @@
             animation: slideInOut 8s infinite;
             z-index: 50;
             max-width: 250px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+            border: 2px solid rgba(255, 255, 255, 0.35);
         }
 
         @keyframes slideInOut {
@@ -403,23 +404,23 @@
 
         @keyframes wobble {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(2deg); }
-            75% { transform: rotate(-2deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
         }
 
         .random-thought {
             position: absolute;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 2px dashed var(--coral);
+            border: 2px dashed rgba(255, 46, 131, 0.45);
             padding: 12px 18px;
             border-radius: 15px;
             font-size: 0.9rem;
-            color: var(--coral);
+            color: #8a2e4a;
             font-weight: bold;
             transform: rotate(-5deg);
             animation: randomFloat 10s infinite ease-in-out;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
 
@@ -445,19 +446,19 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(135deg, var(--pink), var(--coral));
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            color: #6b2742;
             padding: 15px 20px;
             border-radius: 25px;
             font-weight: bold;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.25);
             animation: popIn 0.5s ease-out;
             z-index: 1000;
             cursor: pointer;
             transform: rotate(-3deg);
             max-width: 250px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 134, 102, 0.35);
         }
 
         .interruption:hover {
@@ -604,7 +605,7 @@
         }
 
         .about-section::before {
-            content: '💫';
+            content: '';
             position: absolute;
             top: 60px;
             left: 30px;
@@ -1111,6 +1112,17 @@
                 radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
             animation: drift 20s linear infinite;
+            z-index: 0;
+        }
+
+        /* Add subtle dark overlay for contrast */
+        .media-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.12) 40%, rgba(0,0,0,0.25));
+            pointer-events: none;
+            z-index: 0;
         }
 
         @keyframes drift {
@@ -1155,9 +1167,9 @@
         }
 
         .btn-white:hover {
-            background: transparent;
-            color: white;
-            border-color: white;
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.8);
             transform: translateY(-3px);
         }
 
@@ -1195,35 +1207,9 @@
             position: relative;
         }
 
-        .newsletter-form::before {
-            content: "DO IT!";
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-15deg);
-            background: var(--coral);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            opacity: 0;
-            animation: encouragement 6s infinite;
-        }
+    .newsletter-form::before { content: none; }
 
-        .newsletter-form::after {
-            content: '';
-            position: absolute;
-            left: -95px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-15deg);
-            width: 0;
-            height: 0;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            border-right: 12px solid var(--coral);
-            opacity: 0;
-            animation: encouragement 6s infinite;
-        }
+    .newsletter-form::after { content: none; }
 
         @keyframes encouragement {
             0%, 80%, 100% { opacity: 0; transform: translateY(-50%) translateX(20px) rotate(-15deg); }
@@ -1951,8 +1937,8 @@
                 <h3>Work With Joy</h3>
                 <p>Ready for interviews, speaking engagements, collaborations, and podcast appearances. Professional media kit and high-res photos available.</p>
                 <div class="media-ctas">
-                    <a href="mailto:press@joyalicia.com" class="btn btn-white">📧 Media Inquiries</a>
-                    <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-white">🎙️ Podcast Bookings</a>
+                    <a href="mailto:press@joyalicia.com" class="btn btn-white">Media Inquiries</a>
+                    <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-white">Podcast Bookings</a>
                     <a href="#" class="btn btn-white">📁 Download Media Kit</a>
                 </div>
             </div>

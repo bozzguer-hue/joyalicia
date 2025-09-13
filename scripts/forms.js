@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
         });
         if(res.ok){
           form.querySelector('.form-msg')?.remove();
-          const msg = document.createElement('div'); msg.className='form-msg success'; msg.textContent='Welcome to the Bad Date Club 🎉 Check your inbox.';
+          const msg = document.createElement('div'); msg.className='form-msg success'; msg.textContent='Welcome to the Bad Date Club. Check your inbox.';
           form.appendChild(msg);
           form.reset();
           // CHAOS: Create confetti explosion!
@@ -63,19 +63,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // CHAOS FUNCTIONS FOR PERSONALITY!
   function createConfetti() {
-    const confettiElements = ['🎉', '🥂', '📚', '💕', '🎭', '✨'];
-    for(let i = 0; i < 20; i++) {
+    // Minimal geometric confetti (squares/circles) without emojis
+    for(let i = 0; i < 24; i++) {
       const confetti = document.createElement('div');
-      confetti.textContent = confettiElements[Math.floor(Math.random() * confettiElements.length)];
+      const size = 6 + Math.random()*6;
+      const isCircle = Math.random() > 0.5;
       confetti.style.position = 'fixed';
       confetti.style.left = Math.random() * 100 + 'vw';
       confetti.style.top = '-10px';
-      confetti.style.fontSize = '2rem';
+      confetti.style.width = size + 'px';
+      confetti.style.height = size + 'px';
+      confetti.style.background = ['#ff8966','#ff4a9c','#ffd4b3','#ffe6cc'][Math.floor(Math.random()*4)];
+      confetti.style.borderRadius = isCircle ? '50%' : '2px';
       confetti.style.pointerEvents = 'none';
       confetti.style.zIndex = '9999';
       confetti.style.animation = 'confettiFall 3s ease-out forwards';
       document.body.appendChild(confetti);
-      
       setTimeout(() => confetti.remove(), 3000);
     }
   }
@@ -92,11 +95,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Random encouraging messages when hovering over buttons
   const encouragements = [
-    "Yes! Do it! 💪",
-    "You know you want to! 😏",
-    "Best decision ever! 🎉",
-    "Join the chaos! 🎭",
-    "Why are you hesitating? 🤔"
+    "You got this.",
+    "Good call.",
+    "Nice choice.",
+    "Let’s go.",
+    "No pressure—just do you."
   ];
 
   document.querySelectorAll('.btn').forEach(btn => {
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // Show chaos message
     const chaosMsg = document.createElement('div');
-    chaosMsg.textContent = '🎭 CHAOS MODE ACTIVATED! 🎭';
+  chaosMsg.textContent = 'CHAOS MODE ACTIVATED';
     chaosMsg.style.position = 'fixed';
     chaosMsg.style.top = '50%';
     chaosMsg.style.left = '50%';
