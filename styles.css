@@ -64,6 +64,25 @@ body {
     padding: 0 var(--space-md);
 }
 
+/* Non-visual responsive safeties */
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.podcast-embed iframe {
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3 {
     font-family: var(--font-serif);
