@@ -3,2027 +3,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joy Alicia — Author, Comedian & Host of The Worstship</title>
-    <meta name="description" content="Award-winning author and comedian Joy Alicia. So Drunk A Tooth's Gotta Go—hilarious essays on dating, ghosting, travel & the gig economy.">
-    <meta property="og:title" content="Joy Alicia — So Drunk A Tooth's Gotta Go">
+    <title>So Drunk A Tooth's Gotta Go — by Joy Alicia</title>
+    <meta name="description" content="The official website for the award-winning book by Joy Alicia, plus her podcast, stand-up, and more.">
+    <meta property="og:title" content="So Drunk A Tooth's Gotta Go — by Joy Alicia">
     <meta property="og:description" content="Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.">
-    <meta property="og:image" content="assets/Card.png">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap');
-        
-        :root {
-            --accent: #ff2e83;
-            --accent-light: #ff4a9c;
-            --accent-dark: #e6256f;
-            --coral: #ff8966;
-            --coral-light: #ffb399;
-            --peach: #ffcc99;
-            --peach-light: #ffe6cc;
-            --text: #1a1a1a;
-            --text-light: #4a4a4a;
-            --muted: #737373;
-            --bg: #ffffff;
-            --bg-cream: #fdf9f5;
-            --bg-peach: #fff8f3;
-            --bg-pink: #fff5fa;
-            --border: #e5e5e5;
-            --shadow: rgba(0, 0, 0, 0.08);
-            --shadow-heavy: rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.65;
-            color: var(--text);
-            background: var(--bg);
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-peach) 50%, var(--bg-cream) 100%);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(255, 134, 102, 0.12);
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .logo-text .name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1;
-            margin-bottom: 2px;
-            background: linear-gradient(135deg, var(--text) 0%, var(--coral) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo-text .tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-            opacity: 0.8;
-        }
-
-        nav {
-            display: flex;
-            gap: 35px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 15px;
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-            transform: translateY(-1px);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            flex-direction: column;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            position: relative;
-            z-index: 1001;
-        }
-
-        .mobile-menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: var(--text);
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .mobile-menu-toggle.active span:first-child {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:third-child {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 140px;
-            background: 
-                linear-gradient(135deg, var(--bg) 0%, var(--bg-pink) 40%, var(--peach-light) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 80% 20%, rgba(255, 134, 102, 0.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero-image {
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(45deg, var(--coral), var(--accent-light));
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .hero-image img {
-            max-width: 350px;
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.8);
-            transform: rotate(-2deg);
-            transition: transform 0.4s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-image:hover img {
-            transform: rotate(0deg) scale(1.05);
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 25px;
-            line-height: 1.15;
-            background: linear-gradient(135deg, var(--text) 0%, var(--coral) 50%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .hero-content h1::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            right: -15px;
-            width: 12px;
-            height: 12px;
-            background: var(--coral);
-            border-radius: 50%;
-            animation: sparkle 3s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-        }
-
-        /* PERSONALITY ICONS SYSTEM */
-        .floating-chaos {
-            position: fixed;
-            pointer-events: none;
-            z-index: 100;
-            font-size: 1.2rem;
-            color: var(--coral);
-            animation: chaosFloat 15s infinite linear;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chaos-icon {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .chaos-1 .chaos-icon {
-            background: linear-gradient(45deg, var(--coral), var(--pink));
-        }
-
-        .chaos-1 .chaos-icon::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .chaos-1 .chaos-icon::after {
-            content: '♪';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--coral);
-            font-size: 12px;
-            z-index: 1;
-        }
-
-        .chaos-2 .chaos-icon {
-            background: var(--accent);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        }
-
-        .chaos-3 .chaos-icon {
-            background: linear-gradient(135deg, var(--coral), var(--peach));
-            border-radius: 3px;
-        }
-
-        .chaos-3 .chaos-icon::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: white;
-            border-radius: 2px;
-        }
-
-        .chaos-4 .chaos-icon {
-            background: var(--pink);
-            transform: rotate(45deg);
-            border-radius: 0;
-        }
-
-        .chaos-1 { top: 10%; left: 90%; animation-delay: 0s; }
-        .chaos-2 { top: 30%; left: 5%; animation-delay: 3s; }
-        .chaos-3 { top: 60%; left: 95%; animation-delay: 7s; }
-        .chaos-4 { top: 80%; left: 10%; animation-delay: 11s; }
-
-        @keyframes chaosFloat {
-            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.7; }
-            25% { transform: translateY(-20px) rotate(90deg) scale(1.2); opacity: 1; }
-            50% { transform: translateY(10px) rotate(180deg) scale(0.8); opacity: 0.5; }
-            75% { transform: translateY(-15px) rotate(270deg) scale(1.1); opacity: 0.8; }
-            100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 0.7; }
-        }
-
-        .unexpected-quote {
-            position: absolute;
-            right: -200px;
-            top: 50%;
-            transform: translateY(-50%) rotate(15deg);
-            background: linear-gradient(135deg, var(--coral), var(--pink));
-            color: #1a1a1a;
-            padding: 15px 20px;
-            border-radius: 20px;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(255, 137, 102, 0.4);
-            animation: slideInOut 8s infinite;
-            z-index: 50;
-            max-width: 250px;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
-            border: 2px solid rgba(255, 255, 255, 0.35);
-        }
-
-        @keyframes slideInOut {
-            0%, 90%, 100% { transform: translateY(-50%) translateX(0) rotate(15deg); opacity: 0; }
-            10%, 80% { transform: translateY(-50%) translateX(-220px) rotate(15deg); opacity: 1; }
-        }
-
-        .wobbly-text {
-            display: inline-block;
-            animation: wobble 2s ease-in-out infinite;
-        }
-
-        @keyframes wobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(1deg); }
-            75% { transform: rotate(-1deg); }
-        }
-
-        .random-thought {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px dashed rgba(255, 46, 131, 0.45);
-            padding: 12px 18px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            color: #8a2e4a;
-            font-weight: bold;
-            transform: rotate(-5deg);
-            animation: randomFloat 10s infinite ease-in-out;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
-        }
-
-        .thought-1 {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .thought-2 {
-            top: 70%;
-            right: 15%;
-            animation-delay: 5s;
-            transform: rotate(5deg);
-        }
-
-        @keyframes randomFloat {
-            0%, 100% { transform: translateY(0) rotate(-5deg); opacity: 0.8; }
-            50% { transform: translateY(-15px) rotate(5deg); opacity: 1; }
-        }
-
-        .interruption {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            color: #6b2742;
-            padding: 15px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.25);
-            animation: popIn 0.5s ease-out;
-            z-index: 1000;
-            cursor: pointer;
-            transform: rotate(-3deg);
-            max-width: 250px;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
-            border: 2px solid rgba(255, 134, 102, 0.35);
-        }
-
-        .interruption:hover {
-            transform: rotate(0deg) scale(1.05);
-            animation: bounce 0.6s ease-in-out infinite;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
-            100% { transform: scale(1) rotate(-3deg); opacity: 1; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0) scale(1.05); }
-            50% { transform: translateY(-5px) scale(1.05); }
-        }
-
-        .tagline {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--text-light);
-            margin-bottom: 35px;
-            font-weight: 400;
-            max-width: 500px;
-            font-style: italic;
-        }
-
-        .awards {
-            margin-bottom: 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px 20px;
-            align-items: center;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, var(--coral), var(--accent));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 
-                0 8px 25px rgba(255, 134, 102, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .badge:hover {
-            transform: rotate(-3deg) scale(1.05);
-            animation: wiggle 0.5s ease-in-out infinite;
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg) scale(1.05); }
-            50% { transform: rotate(3deg) scale(1.05); }
-        }
-
-        .badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .badge:hover::before {
-            left: 100%;
-        }
-
-        .badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 134, 102, 0.5);
-        }
-
-        .award-text {
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            border: none;
-            position: relative;
-            min-width: 140px;
-            justify-content: center;
-            letter-spacing: 0.3px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--coral), var(--pink));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 134, 102, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 134, 102, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--text);
-            border: 1px solid rgba(255, 134, 102, 0.2);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-secondary:hover {
-            background: var(--coral);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* About Joy Section */
-        .about-section {
-            padding: 120px 0;
-            background: 
-                linear-gradient(135deg, var(--bg) 0%, var(--bg-peach) 50%, var(--bg-cream) 100%);
-            position: relative;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 30px;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .about-image {
-            text-align: center;
-            position: relative;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 280px;
-            height: 280px;
-            background: linear-gradient(45deg, var(--coral), var(--accent-light));
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-        }
-
-        .about-image img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.2),
-                0 0 0 8px rgba(255, 255, 255, 0.8),
-                0 0 0 12px rgba(255, 46, 131, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.25),
-                0 0 0 8px rgba(255, 255, 255, 0.9),
-                0 0 0 15px rgba(255, 46, 131, 0.2);
-        }
-
-        .about-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--text);
-            position: relative;
-        }
-
-        .about-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--coral), var(--accent));
-            border-radius: 2px;
-        }
-
-        .about-content p {
-            font-size: 18px;
-            margin-bottom: 25px;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        .personality-highlight {
-            background: 
-                linear-gradient(135deg, var(--peach-light) 0%, rgba(255, 255, 255, 0.9) 100%);
-            padding: 35px;
-            border-radius: 20px;
-            margin: 35px 0;
-            border: 1px solid rgba(255, 134, 102, 0.15);
-            border-left: 6px solid var(--coral);
-            box-shadow: 0 10px 30px rgba(255, 134, 102, 0.12);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .personality-highlight::before {
-            content: '💅';
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 1.5rem;
-            opacity: 0.6;
-        }
-
-        .personality-highlight p {
-            margin: 0;
-            font-style: italic;
-            color: var(--text);
-            font-size: 17px;
-        }
-
-        /* Podcast Section */
-        .podcast-section {
-            padding: 120px 0;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(255, 134, 102, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, var(--bg-cream) 0%, var(--bg) 50%, var(--bg-peach) 100%);
-            position: relative;
-        }
-
-        .podcast-section::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            right: 50px;
-            width: 24px;
-            height: 24px;
-            background: var(--coral);
-            border-radius: 50%;
-            opacity: 0.2;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.1); opacity: 0.4; }
-        }
-
-        .podcast-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--text) 0%, var(--coral) 50%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .podcast-subtitle {
-            font-size: 20px;
-            color: var(--text-light);
-            margin-bottom: 60px;
-            text-align: center;
-            font-style: italic;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .podcast-card {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            background: 
-                linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.1),
-                0 0 0 1px rgba(255, 255, 255, 0.5);
-            max-width: 900px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 46, 131, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .podcast-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 134, 102, 0.08), transparent);
-            transition: left 0.8s;
-        }
-
-        .podcast-card:hover::before {
-            left: 100%;
-        }
-
-        .podcast-card img {
-            width: 180px;
-            height: 180px;
-            border-radius: 20px;
-            object-fit: cover;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: transform 0.4s ease;
-        }
-
-        .podcast-card:hover img {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        .podcast-content h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--coral);
-            font-weight: 700;
-        }
-
-        .podcast-content p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        .podcast-schedule {
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .podcast-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* Latest Updates */
-        .updates-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-peach) 50%, var(--bg-cream) 100%);
-            position: relative;
-        }
-
-        .updates-section::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            width: 20px;
-            height: 20px;
-            background: var(--coral);
-            border-radius: 3px;
-            opacity: 0.2;
-        }
-
-        .updates-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 50px;
-            text-align: center;
-            color: var(--text);
-        }
-
-        .update-card {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px 35px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--coral);
-            font-size: 17px;
-            line-height: 1.6;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 25px;
-        }
-
-        .update-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 134, 102, 0.2);
-        }
-
-        /* Episodes Grid */
-        .episodes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .episode-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid var(--coral);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .episode-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--coral), var(--pink));
-        }
-
-        .episode-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 134, 102, 0.25);
-        }
-
-        .episode-info h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--text);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .episode-date {
-            color: var(--coral);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .episode-description {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .episode-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .listen-link {
-            padding: 8px 16px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .listen-link.spotify {
-            background: #1DB954;
-            color: white;
-        }
-
-        .listen-link.spotify:hover {
-            background: white;
-            color: #1DB954;
-            border-color: #1DB954;
-        }
-
-        .listen-link.apple {
-            background: linear-gradient(135deg, #FA233B, #FB5C74);
-            color: white;
-        }
-
-        .listen-link.apple:hover {
-            background: white;
-            color: #FA233B;
-            border-color: #FA233B;
-        }
-
-        /* Reviews Section */
-        .reviews-section {
-            padding: 100px 0;
-            background: 
-                radial-gradient(circle at 70% 30%, rgba(255, 134, 102, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, var(--bg-pink) 0%, var(--bg) 50%, var(--peach-light) 100%);
-        }
-
-        .reviews-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 60px;
-            text-align: center;
-            color: var(--text);
-        }
-
-        .reviews-marquee {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
-            -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 30px;
-            animation: marqueeScroll 120s linear infinite;
-            width: fit-content;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px 25px;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            position: relative;
-            border: 1px solid rgba(255, 134, 102, 0.15);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            min-width: 350px;
-            max-width: 350px;
-            flex-shrink: 0;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(255, 134, 102, 0.2);
-        }
-
-        .review-card::before {
-            content: '"';
-            font-size: 3rem;
-            color: var(--coral);
-            position: absolute;
-            top: -2px;
-            left: 20px;
-            font-weight: bold;
-            opacity: 0.6;
-        }
-
-        .review-card p {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        .review-card span {
-            display: block;
-            font-weight: 700;
-            color: var(--coral);
-            font-style: normal;
-            font-size: 14px;
-        }
-
-        .rating {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--coral), var(--pink));
-            color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-
-        /* Media Kit Section */
-        .media-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--coral), var(--accent));
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .media-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: drift 20s linear infinite;
-            z-index: 0;
-        }
-
-        /* Add subtle dark overlay for contrast */
-        .media-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.12) 40%, rgba(0,0,0,0.25));
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes drift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 30px); }
-        }
-
-        .media-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .media-section p {
-            font-size: 20px;
-            margin-bottom: 45px;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-
-        .media-ctas {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-white {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--coral);
-            border: 2px solid transparent;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-white:hover {
-            background: rgba(255,255,255,0.15);
-            color: #ffffff;
-            border-color: rgba(255,255,255,0.8);
-            transform: translateY(-3px);
-        }
-
-        /* Newsletter */
-        .newsletter-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--bg-peach) 0%, var(--bg-cream) 50%, var(--bg) 100%);
-            text-align: center;
-        }
-
-        .newsletter-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 25px;
-            color: var(--text);
-        }
-
-        .newsletter-subtitle {
-            font-size: 20px;
-            color: var(--text-light);
-            margin-bottom: 50px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            max-width: 550px;
-            margin: 0 auto;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-            position: relative;
-        }
-
-    .newsletter-form::before { content: none; }
-
-    .newsletter-form::after { content: none; }
-
-        @keyframes encouragement {
-            0%, 80%, 100% { opacity: 0; transform: translateY(-50%) translateX(20px) rotate(-15deg); }
-            10%, 70% { opacity: 1; transform: translateY(-50%) translateX(0) rotate(-15deg); }
-        }
-
-        .hero-text {
-            position: relative;
-        }
-
-        .hero-text::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, var(--coral) 30%, transparent 70%);
-            border-radius: 50%;
-            animation: explosion 2s infinite;
-        }
-
-        .hero-text::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(45deg, var(--pink), var(--accent));
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            animation: explosion 2s infinite;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes explosion {
-            0%, 90%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
-            45% { transform: scale(1.3) rotate(180deg); opacity: 1; }
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            min-width: 220px;
-            padding: 18px 24px;
-            border: 2px solid var(--border);
-            border-radius: 50px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--coral);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(255, 134, 102, 0.15);
-        }
-
-        .newsletter-form button {
-            padding: 18px 35px;
-            background: linear-gradient(135deg, var(--coral), var(--accent));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(255, 134, 102, 0.4);
-            font-size: 16px;
-        }
-
-        .newsletter-form button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(255, 134, 102, 0.5);
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 0 40px;
-            background: var(--text);
-            color: white;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 20px;
-            color: var(--coral);
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            padding: 8px 0;
-            font-size: 15px;
-        }
-
-        .social-links a:hover {
-            color: var(--coral);
-            transform: translateY(-2px);
-        }
-
-        .footer-bottom {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #333;
-            opacity: 0.7;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 15px 20px;
-            }
-            
-            .logo-text .name {
-                font-size: 1.5rem;
-            }
-            
-            .logo-text .tagline {
-                font-size: 0.7rem;
-            }
-            
-            nav {
-                gap: 20px;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-            }
-            
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-            
-            .nav-menu a {
-                font-size: 24px;
-                padding: 16px 24px;
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-                text-align: center;
-                min-width: 200px;
-                justify-content: center;
-            }
-            
-            .hero {
-                padding: 120px 0 100px;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-            }
-            
-            .hero::before {
-                display: none;
-            }
-            
-            .hero-grid {
-                gap: 50px;
-                padding: 0 20px;
-                text-align: center;
-            }
-            
-            .hero-content h1 {
-                font-size: clamp(2.8rem, 8vw, 3.5rem);
-                line-height: 1.1;
-                margin-bottom: 25px;
-            }
-            
-            .hero-content h1::after {
-                display: none;
-            }
-            
-            .hero-content p {
-                font-size: 18px;
-                line-height: 1.6;
-                margin-bottom: 40px;
-                max-width: 90%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .awards {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-                margin-bottom: 40px;
-            }
-            
-            .award-badge {
-                padding: 12px 24px;
-                font-size: 14px;
-                min-width: 200px;
-                text-align: center;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 16px;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .btn {
-                text-align: center;
-                padding: 16px 24px;
-                font-size: 16px;
-                min-height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 12px;
-            }
-            
-            .about-section, .podcast-section, .updates-section, .reviews-section {
-                padding: 80px 0;
-            }
-            
-            .about-section::before, .podcast-section::before, .updates-section::before {
-                display: none;
-            }
-            
-            .about-grid {
-                padding: 0 20px;
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            
-            .about-image {
-                order: -1;
-                margin-bottom: 30px;
-            }
-            
-            .about-content h2 {
-                font-size: clamp(2rem, 6vw, 2.5rem);
-                margin-bottom: 25px;
-            }
-            
-            .about-content p {
-                font-size: 16px;
-                line-height: 1.6;
-                margin-bottom: 20px;
-            }
-            
-            .podcast-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 30px;
-                margin: 0 20px;
-                border-radius: 20px;
-            }
-            
-            .podcast-content h3 {
-                font-size: 22px;
-                margin-bottom: 20px;
-            }
-            
-            .podcast-content p {
-                font-size: 16px;
-                line-height: 1.6;
-                margin-bottom: 25px;
-            }
-            
-            .personality-highlight {
-                padding: 25px;
-                margin: 0 20px;
-                border-radius: 15px;
-            }
-            
-            .personality-highlight h3 {
-                font-size: 20px;
-                margin-bottom: 15px;
-            }
-            
-            .personality-trait {
-                padding: 8px 16px;
-                font-size: 14px;
-                margin: 8px 4px;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-                gap: 15px;
-                padding: 0 20px;
-            }
-            
-            .newsletter-form input {
-                min-width: auto;
-                padding: 16px 20px;
-                font-size: 16px;
-                border-radius: 12px;
-            }
-            
-            .newsletter-form button {
-                padding: 16px 24px;
-                font-size: 16px;
-                border-radius: 12px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
-                padding: 0 20px;
-            }
-            
-            .footer-section h4 {
-                font-size: 18px;
-                margin-bottom: 20px;
-            }
-            
-            .footer-section a {
-                font-size: 16px;
-                padding: 8px 0;
-                display: block;
-            }
-            
-            /* Mobile-specific floating elements */
-            .random-thought, .unexpected-quote, .interruption {
-                position: static !important;
-                transform: none !important;
-                margin: 30px 20px;
-                padding: 20px;
-                border-radius: 15px;
-                text-align: center;
-                max-width: calc(100% - 40px);
-                box-shadow: 0 8px 25px rgba(255, 139, 139, 0.15);
-            }
-            
-            .random-thought::before, .unexpected-quote::before, .interruption::before {
-                display: none;
-            }
-            
-            .reviews-scroll {
-                padding: 0 20px;
-            }
-            
-            .review-card {
-                min-width: 280px;
-                padding: 25px;
-                margin-right: 20px;
-            }
-            
-            .review-card h4 {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-            
-            .review-card p {
-                font-size: 14px;
-                line-height: 1.5;
-            }
-            
-            .rating-badge {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            
-            /* Episodes Grid Mobile */
-            .episodes-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                padding: 0 20px;
-            }
-            
-            .episode-card {
-                padding: 25px;
-                border-radius: 15px;
-            }
-            
-            .episode-card h4 {
-                font-size: 18px;
-                margin-bottom: 12px;
-                line-height: 1.3;
-            }
-            
-            .episode-card p {
-                font-size: 14px;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
-            
-            .episode-meta {
-                font-size: 12px;
-                margin-bottom: 15px;
-            }
-            
-            .episode-links {
-                gap: 12px;
-            }
-            
-            .episode-links a {
-                padding: 10px 16px;
-                font-size: 14px;
-                border-radius: 8px;
-                min-height: 40px;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .hero-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 80px;
-            }
-
-            .hero-content h1 {
-                font-size: clamp(3.5rem, 5vw, 4.5rem);
-            }
-
-            .about-grid {
-                grid-template-columns: 280px 1fr;
-                gap: 80px;
-            }
-
-            .about-image {
-                text-align: center;
-            }
-            
-            .newsletter-form {
-                flex-wrap: nowrap;
-            }
-
-            .newsletter-form input {
-                min-width: auto;
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(3, 1fr);
-                text-align: left;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-content h1 {
-                font-size: 4.5rem;
-            }
-            
-            .container {
-                padding: 0 40px;
-            }
-        }
-    </style>
+    <meta property="og:image" content="assets/Front Cover.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-text">
-                    <span class="name">Joy Alicia</span>
-                    <span class="tagline">Author | Podcaster | Comedian | Dating Coach</span>
-                </div>
-            </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-menu">
-                <a href="#book">Book</a>
-                <a href="#podcast">Podcast</a>
-                <a href="#about">About</a>
-                <a href="#media">Media</a>
-                <a href="#contact">Contact</a>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-area">
+                <a href="#" class="logo">Joy Alicia</a>
+                <span class="header-tagline">Author, Podcaster, Comedian, Dating Coach</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#book">Book</a></li>
+                    <li><a href="#podcast">Podcast</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#dating-coach">Dating Coach</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Floating Personality Elements -->
-        <div class="floating-chaos chaos-1"><div class="chaos-icon"></div></div>
-        <div class="floating-chaos chaos-2"><div class="chaos-icon"></div></div>
-        <div class="floating-chaos chaos-3"><div class="chaos-icon"></div></div>
-        <div class="floating-chaos chaos-4"><div class="chaos-icon"></div></div>
-
-        <!-- Random Thoughts -->
-        <div class="random-thought thought-1">"Why do I do this to myself?"</div>
-        <div class="random-thought thought-2">"This seemed funnier in my head..."</div>
-
-        <!-- Hero Section -->
-        <section class="hero" id="book">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-image">
-                        <img src="assets/Front Cover.png" alt="So Drunk A Tooth's Gotta Go book cover">
-                        <div class="unexpected-quote">"I wrote this book so you don't have to live my mistakes... but you probably will anyway."</div>
+        <section class="hero section" id="book">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>SO DRUNK <span class="blue-accent">A TOOTH'S</span> GOTTA GO</h1>
+                    <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.</p>
+                    <div class="accolades">
+                        <div class="accolade">🏆 Winner — Writer's Digest Humor</div>
+                        <div class="accolade">🏅 LA Book Festival Honorable Mention</div>
+                        <div class="accolade">⭐ Readers' Favorite Finalist</div>
                     </div>
-                    <div class="hero-content">
-                        <h1 class="wobbly-text hero-text">So Drunk A Tooth's Gotta Go</h1>
-                        <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.</p>
-                        <div class="awards">
-                            <span class="badge">Winner — Writer's Digest Humor</span>
-                            <span class="award-text">• LA Book Festival Honorable Mention • Readers' Favorite Finalist</span>
-                        </div>
-                        <div class="cta-buttons">
-                            <a href="#" class="btn btn-primary">Get the Book</a>
-                            <a href="#podcast" class="btn btn-secondary">Listen to The Worstship</a>
-                        </div>
+                    <a href="https://a.co/d/9tuAscD" class="btn btn-primary">Buy on Amazon</a>
+                </div>
+                <div class="hero-image">
+                    <img src="assets/Front Cover.png" alt="Book cover for So Drunk A Tooth's Gotta Go">
+                </div>
+            </div>
+        </section>
+
+        <section class="book-details section">
+            <div class="container">
+                <div class="book-details-grid">
+                    <div class="book-title-column">
+                        <h2>What's inside (besides chaos)</h2>
+                    </div>
+                    <div class="book-list-column">
+                        <ul class="book-inside-list">
+                            <li>19 essays on hookups, ghosting, breakups & bad dates</li>
+                            <li>Time-saving dating hacks (how to stop getting ghosted)</li>
+                            <li>Travel misadventures + safety tips</li>
+                            <li>Gig-economy truths, toxic friends, and finding self-worth</li>
+                            <li>Proof that confidence is the best self-care</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Joy Section -->
-        <section class="about-section" id="about">
+        <section class="pull-quotes section">
             <div class="container">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="assets/Joy Alicia.png" alt="Joy Alicia headshot">
-                    </div>
-                    <div class="about-content">
-                        <h2>Meet Joy Alicia</h2>
-                        <p>Joy Alicia is a writer, stand-up comic, podcast host, and founder of Online Dating Savior. Her award-winning book <em>So Drunk A Tooth's Gotta Go</em> won the Writer's Digest Humor Award and has been featured in Newsweek, Daily Mail, Metro UK and Blavity.</p>
-                        
-                        <div class="personality-highlight">
-                            <p><strong>Fun fact:</strong> She once had 10,000 men swipe right on her Tinder profile—fuel for the funniest chapters in her book. She's also known to cry-laugh through a breakup playlist at 3 a.m., then wake up and turn it into material the next night.</p>
+                <div class="quote-carousel">
+                    <div class="quote-track">
+                        <div class="quote-slide">
+                            <p class="quote-text">"So Drunk A Tooth's Gotta Go was a tonic. A whip-smart, cathartic read that many women will appreciate, especially after having 'one of those' kinds of weeks."</p>
+                            <p class="quote-author">— Sarah Jensen</p>
                         </div>
-                        
-                        <p>She performs across California, Texas, and Oregon, turning dating disasters into essays and stand-up—often while spoiling her avoidantly attached dog.</p>
-                        
-                        <p><strong>Interview topics:</strong> modern dating disasters, writing funny essays, turning embarrassment into material, podcasting about breakups, the gig economy, and finding humor in life's chaos.</p>
+                        <div class="quote-slide">
+                            <p class="quote-text">"Joy Alicia has a naturally comedic voice that's razor-sharp and deeply vulnerable."</p>
+                            <p class="quote-author">— K.C. Finn</p>
+                        </div>
+                        <div class="quote-slide">
+                            <p class="quote-text">"Refreshingly candid, packed with sharp wit and insightful observations. Joy Alicia's use of hyperbole is unmatched... a compelling mix of lightheartedness and serious discourse, showcasing her skill as a storyteller who can entertain while inspiring thoughtful reflection."</p>
+                            <p class="quote-author">— Carol Thompson</p>
+                        </div>
                     </div>
+                </div>
+                <div class="carousel-dots"></div>
+            </div>
+        </section>
+
+        <section class="podcast-spotlight section" id="podcast">
+            <div class="container">
+                <h2>The Worstship Podcast</h2>
+                <p class="hook">Breakups are messy. Let's laugh about it.</p>
+                <p class="short-copy">The Worstship is Joy's interview show about bad relationships and messy situationships. It's raw, witty, and surprisingly healing.</p>
+                <div class="podcast-buttons">
+                    <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="btn btn-secondary">Listen on Spotify</a>
+                    <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="btn btn-secondary">Listen on Apple</a>
+                </div>
+                <div class="podcast-embed">
+                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:652px;max-width:100%;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/the-worstship/id1753793447"></iframe>
+                </div>
+                <div class="podcast-guest-note">
+                    <a href="mailto:theworstshippodcast@gmail.com" class="guest-btn">Wanna be a guest?</a>
                 </div>
             </div>
         </section>
 
-        <!-- Podcast Section -->
-        <section class="podcast-section" id="podcast">
+        <section class="about-joy section" id="about">
             <div class="container">
-                <h2>The Worstship</h2>
-                <p class="podcast-subtitle">Breakups are messy. Let's laugh about it.</p>
-                <div class="podcast-card">
-                    <img src="assets/The Worstship.png" alt="The Worstship podcast">
-                    <div class="podcast-content">
-                        <h3>Latest Episodes</h3>
-                        <p>Raw, funny conversations about messy breakups and bad relationships. Guests spill their worst dating stories while we laugh, cringe, and learn a little.</p>
-                        <p class="podcast-schedule">New episodes every Tuesday</p>
-                        <div class="podcast-links">
-                            <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="btn btn-secondary">Spotify</a>
-                            <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="btn btn-secondary">Apple</a>
-                            <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-secondary">Be a Guest</a>
-                        </div>
-                    </div>
+                <div class="about-joy-image">
+                    <img src="assets/Joy Alicia.png" alt="Portrait of Joy Alicia">
+                </div>
+                <div class="about-joy-text">
+                    <h2>About Joy</h2>
+                    <p>Joy Alicia is a versatile podcast host, writer, stand-up comic, and founder of Online Dating Savior. Her writing has been published in Newsweek, The Daily Mail, Blavity, Metro UK, and The Bold Italic.</p>
+                    
+                    <p>A passionate international traveler with a colorful dating history, Joy shares her unforgettable experiences with humorous flair. When Tinder notified her that 10,000 men had swiped right on her profile, it sparked the realization that her dating adventures could entertain others—and she hasn't looked back since.</p>
+                    
+                    <p>She has performed stand-up comedy in California, Texas, and Oregon. Joy currently lives in southern California with her avoidantly attached dog.</p>
+                    
+                    <a href="https://www.instagram.com/j_o_why/" class="follow-link">Follow on Instagram</a>
                 </div>
             </div>
         </section>
 
-        <!-- Latest Episodes -->
-        <section class="updates-section">
+        <section class="reviews section">
             <div class="container">
-                <h3>Latest Episodes from The Worstship</h3>
-                <div class="episodes-grid">
-                    <div class="episode-card">
-                        <div class="episode-info">
-                            <h4>Episode 47: "When Your Ex Texts 'U Up?'"</h4>
-                            <p class="episode-date">December 15, 2025</p>
-                            <p class="episode-description">We dissect the anatomy of a 2 AM disaster text and why your ex suddenly thinks you're available at ungodly hours.</p>
-                            <div class="episode-links">
-                                <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="listen-link spotify">Spotify</a>
-                                <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="listen-link apple">Apple</a>
+                <h2>Readers Are Obsessed</h2>
+                <div class="reviews-carousel">
+                    <div class="reviews-track">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">N</div>
+                                <div class="review-info">
+                                    <span class="name">N.N.</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
                             </div>
+                            <p>Joy Alicia's So Drunk A Tooth's Gotta Go is a fearless, funny, and refreshingly real collection of essays that reads like a heart-to-heart with your boldest, wisest, and most brutally honest friend. It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down.</p>
                         </div>
-                    </div>
-                    <div class="episode-card">
-                        <div class="episode-info">
-                            <h4>Episode 46: "The Audacity of Dating App Profiles"</h4>
-                            <p class="episode-date">December 8, 2025</p>
-                            <p class="episode-description">Breaking down the most ridiculous dating app profiles and the red flags hiding in plain sight.</p>
-                            <div class="episode-links">
-                                <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="listen-link spotify">Spotify</a>
-                                <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="listen-link apple">Apple</a>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">W</div>
+                                <div class="review-info">
+                                    <span class="name">Wallace George</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
                             </div>
+                            <p>Super witty. An Oscar Wilde for the gig economy and online dating. So Drunk A Tooth's Gotta Go is one of the most entertaining books I've ever read. It's fun, wild, and informative. It was hard for me to put this book down.</p>
                         </div>
-                    </div>
-                    <div class="episode-card">
-                        <div class="episode-info">
-                            <h4>Episode 45: "Ghosting vs. Slow Fade: A Survival Guide"</h4>
-                            <p class="episode-date">December 1, 2025</p>
-                            <p class="episode-description">Understanding the difference between being ghosted and the slow fade, plus how to handle both with your dignity intact.</p>
-                            <div class="episode-links">
-                                <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="listen-link spotify">Spotify</a>
-                                <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="listen-link apple">Apple</a>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">A</div>
+                                <div class="review-info">
+                                    <span class="name">Amanda P</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
                             </div>
+                            <p>Joy Alicia's writing is razor-sharp, deeply vulnerable, and charming. Her humor, wisdom, and unapologetic honesty make this book a raw, witty portal for women to connect over common challenges. I've literally NEVER LAUGHED OUT LOUD WHILE READING! PLEASE BUY, YOU WON'T REGRET IT!</p>
                         </div>
-                    </div>
-                    <div class="episode-card">
-                        <div class="episode-info">
-                            <h4>Episode 44: "Red Flags We Ignored for Love"</h4>
-                            <p class="episode-date">November 24, 2025</p>
-                            <p class="episode-description">Guest stories about the warning signs we convinced ourselves were "quirky" until reality hit hard.</p>
-                            <div class="episode-links">
-                                <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="listen-link spotify">Spotify</a>
-                                <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="listen-link apple">Apple</a>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">n</div>
+                                <div class="review-info">
+                                    <span class="name">nightfire</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section class="reviews-section">
-            <div class="container">
-                <h3>What Readers Are Saying</h3>
-                <div class="reviews-marquee">
-                    <div class="marquee-track">
-                        <div class="review-card">
-                            <p>"Funny, Honest, and Very Relatable. Joy writes with sharp humor and honesty, turning awkward moments into empowering stories."</p>
-                            <span>— Leonard <span class="rating">5/5</span></span>
+                            <p>A hilarious survival guide for modern life. Joy Alicia delivers raw truths with punchline precision, turning chaotic life moments into deeply relatable lessons and laugh-out-loud stories. Bold, insightful, and packed with life wisdom.</p>
                         </div>
                         <div class="review-card">
-                            <p>"This Book is a One of a Kind. Hilarious, relatable, and exactly the pick-me-up you need after a bad day."</p>
-                            <span>— Jessica <span class="rating">5/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">H</div>
+                                <div class="review-info">
+                                    <span class="name">Hannah Lindley</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>This is a riotous, unfiltered take on modern chaos—from dating app disasters to gig economy survival. Her stand-up comic timing shines in essays that balance cringeworthy honesty with laugh-so-hard-you-snort moments. Perfect for anyone who's ever ugly-cried over a ghosting... then laughed about it weeks later.</p>
                         </div>
                         <div class="review-card">
-                            <p>"Bold, funny and fearlessly honest. Transforms bad dates and gig economy struggles into lessons that feel like heart-to-hearts."</p>
-                            <span>— Reyansh <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Felt Like a Therapy Session with a Hilarious Best Friend. Raw, messy, and so real. Made me feel less alone in all the chaos."</p>
-                            <span>— B. Willy <span class="rating">4/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Related way too hard. Straight-up hilarious but sneaks up on you with punches of truth. Like talking to your brutally honest best friend."</p>
-                            <span>— Daniel <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"A hilarious survival guide for modern life. Perfect balance of absurd humor and emotional depth."</p>
-                            <span>— nightfire <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Unfiltered, Unapologetic, and Unforgettable. Equal parts memoir, therapy session, and comedy special."</p>
-                            <span>— N.N <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Literally made me laugh out loud! The way the stories are told is what got me going. Definitely check this out."</p>
-                            <span>— Sachi <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"From Pavement to Punchlines. Felt like someone handing me their diary and saying 'Laugh with me, even when it hurts.'"</p>
-                            <span>— Kenneth Agbata <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Really Really Funny. Keeps it hilarious from first chapter to the end. Really enlightening."</p>
-                            <span>— Rod <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Hilarious, Honest, and Totally Relatable. Writes like that super smart, hilarious friend who's seen some stuff."</p>
-                            <span>— Ella English <span class="rating">5/5</span></span>
-                        </div>
-                        <div class="review-card">
-                            <p>"Just perfect!! Riotous, unfiltered take on modern chaos. Perfect for anyone who's ever ugly-cried over ghosting."</p>
-                            <span>— Amazon Reviewer <span class="rating">5/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">C</div>
+                                <div class="review-info">
+                                    <span class="name">Cinthia Dycus</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>After reading So Drunk A Tooth's Gotta Go, I'm convinced my online dating experiences won't be miserable. The advice in the 'Dating Hacks' chapter is superb. Joy's stories are the best. I didn't know I would laugh so much. I will be getting a copy for all my single friends.</p>
                         </div>
                         <!-- Duplicate set for seamless loop -->
                         <div class="review-card">
-                            <p>"Funny, Honest, and Very Relatable. Joy writes with sharp humor and honesty, turning awkward moments into empowering stories."</p>
-                            <span>— Leonard <span class="rating">5/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">N</div>
+                                <div class="review-info">
+                                    <span class="name">N.N.</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>Joy Alicia's So Drunk A Tooth's Gotta Go is a fearless, funny, and refreshingly real collection of essays that reads like a heart-to-heart with your boldest, wisest, and most brutally honest friend. It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down.</p>
                         </div>
                         <div class="review-card">
-                            <p>"This Book is a One of a Kind. Hilarious, relatable, and exactly the pick-me-up you need after a bad day."</p>
-                            <span>— Jessica <span class="rating">5/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">W</div>
+                                <div class="review-info">
+                                    <span class="name">Wallace George</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>Super witty. An Oscar Wilde for the gig economy and online dating. So Drunk A Tooth's Gotta Go is one of the most entertaining books I've ever read. It's fun, wild, and informative. It was hard for me to put this book down.</p>
                         </div>
                         <div class="review-card">
-                            <p>"Bold, funny and fearlessly honest. Transforms bad dates and gig economy struggles into lessons that feel like heart-to-hearts."</p>
-                            <span>— Reyansh <span class="rating">5/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">A</div>
+                                <div class="review-info">
+                                    <span class="name">Amanda P</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>Joy Alicia's writing is razor-sharp, deeply vulnerable, and charming. Her humor, wisdom, and unapologetic honesty make this book a raw, witty portal for women to connect over common challenges. I've literally NEVER LAUGHED OUT LOUD WHILE READING! PLEASE BUY, YOU WON'T REGRET IT!</p>
                         </div>
                         <div class="review-card">
-                            <p>"Felt Like a Therapy Session with a Hilarious Best Friend. Raw, messy, and so real. Made me feel less alone in all the chaos."</p>
-                            <span>— B. Willy <span class="rating">4/5</span></span>
+                            <div class="review-header">
+                                <div class="review-avatar">n</div>
+                                <div class="review-info">
+                                    <span class="name">nightfire</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>A hilarious survival guide for modern life. Joy Alicia delivers raw truths with punchline precision, turning chaotic life moments into deeply relatable lessons and laugh-out-loud stories. Bold, insightful, and packed with life wisdom.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">H</div>
+                                <div class="review-info">
+                                    <span class="name">Hannah Lindley</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>This is a riotous, unfiltered take on modern chaos—from dating app disasters to gig economy survival. Her stand-up comic timing shines in essays that balance cringeworthy honesty with laugh-so-hard-you-snort moments. Perfect for anyone who's ever ugly-cried over a ghosting... then laughed about it weeks later.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-avatar">C</div>
+                                <div class="review-info">
+                                    <span class="name">Cinthia Dycus</span>
+                                    <span class="rating">★★★★★</span>
+                                </div>
+                            </div>
+                            <p>After reading So Drunk A Tooth's Gotta Go, I'm convinced my online dating experiences won't be miserable. The advice in the 'Dating Hacks' chapter is superb. Joy's stories are the best. I didn't know I would laugh so much. I will be getting a copy for all my single friends.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Media Kit Section -->
-        <section class="media-section" id="media">
-            <div class="container">
-                <h3>Work With Joy</h3>
-                <p>Ready for interviews, speaking engagements, collaborations, and podcast appearances. Professional media kit and high-res photos available.</p>
-                <div class="media-ctas">
-                    <a href="mailto:press@joyalicia.com" class="btn btn-white">Media Inquiries</a>
-                    <a href="mailto:theworstshippodcast@gmail.com" class="btn btn-white">Podcast Bookings</a>
-                    <a href="#" class="btn btn-white">📁 Download Media Kit</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="newsletter-section" id="contact">
-            <div class="container">
-                <h3>Join the Bad Date Club</h3>
-                <p class="newsletter-subtitle">Bad dates make the best stories. Get essays, podcast extras, and occasional chaos delivered to your inbox.</p>
-                <form class="newsletter-form" action="/api/form-proxy" method="post">
-                    <input type="text" name="first" placeholder="First name" required>
-                    <input type="email" name="email" placeholder="Email address" required>
-                    <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit">💌 Join the Club</button>
-                </form>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">Twitter</a>
+    <footer class="footer" id="dating-coach">
+        <div class="container footer-content">
+            <div class="dating-coach-section">
+                <h3>Ready for Better Dates?</h3>
+                <p class="value-prop">Join <strong>Online Dating Savior</strong> and transform your dating life. No more endless swiping, awkward conversations, or disappointing dates.</p>
+                <div class="benefits-list">
+                    <span class="benefit">✨ Better matches</span>
+                    <span class="benefit">💬 Great conversations</span>
+                    <span class="benefit">❤️ Amazing first dates</span>
                 </div>
-            </div>
-            <div class="footer-section">
-                <h4>Listen</h4>
-                <div class="social-links">
-                    <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ">Spotify</a>
-                    <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447">Apple Podcasts</a>
+                <p class="credentials">Created by Joy, who turned 10,000 Tinder matches into dating wisdom.</p>
+                
+                <form class="dating-coach-form" action="/api/form-proxy" method="POST" style="display: none;">
+                    <div class="form-container">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Get Early Access</button>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="updates-checkbox" name="updates" checked>
+                        <label for="updates-checkbox">Yes, send me dating tips & updates!</label>
+                    </div>
+                    <input type="hidden" name="_gotcha">
+                </form>
+                <p class="form-status"></p>
+                
+                <div class="contact-cta">
+                    <button id="openContactModal" class="btn btn-primary contact-btn">Get In Touch</button>
+                    <p class="contact-subtitle">Let's discuss how I can help you find lasting love</p>
                 </div>
+                
+                <a href="https://www.onlinedatingsavior.com/" class="learn-more-link" target="_blank">Learn more about Online Dating Savior</a>
             </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <div class="social-links">
-                    <a href="mailto:press@joyalicia.com">Media</a>
-                    <a href="mailto:theworstshippodcast@gmail.com">Podcast</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Joy Alicia. All rights reserved. Made with ❤️ and a lot of bad dates.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            </ul>
+            <p class="footer-copyright">&copy; 2025 Joy Alicia. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Interruption Element -->
-    <div class="interruption" onclick="this.style.display='none'">
-        "Wait... you're still reading? Get the book already!"
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Let's Connect</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Ready to transform your dating life? Send me a message and let's discuss how we can work together.</p>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Subject <span class="required">*</span></label>
+                        <select id="contactSubject" name="subject" required>
+                            <option value="">Choose a topic...</option>
+                            <option value="Dating Coaching">Dating Coaching</option>
+                            <option value="Speaking Engagement">Speaking Engagement</option>
+                            <option value="Podcast Interview">Podcast Interview</option>
+                            <option value="Book Discussion">Book Discussion</option>
+                            <option value="Media Inquiry">Media Inquiry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message <span class="required">*</span></label>
+                        <textarea id="contactMessage" name="message" rows="5" placeholder="Tell me about yourself and what you're looking for..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary contact-submit-btn">Send Message</button>
+                        <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <script src="scripts/forms.js"></script>
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close mobile menu when pressing escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                mobileMenuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    </script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>🍪 We use cookies</h3>
+                <p>We use cookies to enhance your browsing experience, analyze website traffic, and provide personalized content. By continuing to use our site, you consent to our use of cookies.</p>
+            </div>
+            <div class="cookie-actions">
+                <button id="acceptCookies" class="btn btn-primary cookie-btn">Accept All</button>
+                <button id="rejectCookies" class="btn btn-secondary cookie-btn">Reject Non-Essential</button>
+                <a href="cookie-policy.html" class="cookie-link">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/interactions.js"></script>
 </body>
 </html>
