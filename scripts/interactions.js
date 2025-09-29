@@ -50,17 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
             dots[targetIndex].classList.add('active');
         };
 
-        // When I click a dot, move to that slide
-        dotsNav.addEventListener('click', e => {
-            const targetDot = e.target.closest('button.dot');
-            if (!targetDot) return;
+    // Arrow navigation
+    const prevArrow = document.querySelector('.carousel-prev');
+    const nextArrow = document.querySelector('.carousel-next');
 
-            const targetIndex = dots.findIndex(dot => dot === targetDot);
-            moveToSlideByIndex(targetIndex);
+    if (prevArrow && nextArrow) {
+        prevArrow.addEventListener('click', () => {
+            const currentSlide = track.querySelector('.current-slide') || slides[0];
+            const currentIndex = slides.findIndex(slide => slide === currentSlide);
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveToSlideByIndex(prevIndex);
             resetInterval();
         });
 
-        // Auto-play functionality
+        nextArrow.addEventListener('click', () => {
+            const currentSlide = track.querySelector('.current-slide') || slides[0];
+            const currentIndex = slides.findIndex(slide => slide === currentSlide);
+            const nextIndex = (currentIndex + 1) % slides.length;
+            moveToSlideByIndex(nextIndex);
+            resetInterval();
+        });
+    }        // Auto-play functionality
         const startInterval = () => {
             slideInterval = setInterval(() => {
                 const currentSlide = track.querySelector('.current-slide') || slides[0];
