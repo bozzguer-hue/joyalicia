@@ -85,7 +85,7 @@ img, svg {
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3 {
-    font-family: var(--font-serif);
+    font-family: "Futura PT", "Futura", "Poppins", "Nunito Sans", Arial, sans-serif;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--space-md);
@@ -166,14 +166,15 @@ p {
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: var(--space-sm);
 }
 
 .logo {
-    font-family: var(--font-serif);
+    font-family: "Futura PT", "Futura", "Poppins", "Nunito Sans", Arial, sans-serif;
     font-size: 1.8rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--primary-red);
     text-decoration: none;
     text-transform: uppercase;
@@ -327,6 +328,22 @@ p {
 
 .hero-image img:hover {
     transform: rotate(0deg) scale(1.02);
+}
+
+.award-stickers {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.award-sticker {
+    width: 80px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
 }
 
 /* ===== SECTIONS ===== */
@@ -854,7 +871,7 @@ p {
 
 /* ===== REVIEWS SECTION ===== */
 
-/* ===== REVIEWS ===== */
+/* ===== REVIEWS SECTION ===== */
 .reviews {
     background: var(--charcoal);
     color: var(--text-light);
@@ -900,132 +917,41 @@ p {
     font-size: 1.5rem;
 }
 
-.reviews-carousel {
-    position: relative;
+.short-quotes-marquee {
     overflow: hidden;
-    margin: 0 auto;
-    max-width: 100%;
+    position: relative;
+    width: 100%;
 }
 
-.reviews-track {
+.marquee-track {
     display: flex;
     gap: var(--space-lg);
-    animation: slideReviews 60s linear infinite;
-    transition: animation-play-state 0.3s ease;
-    width: calc(200%);
+    animation: scrollQuotes 30s linear infinite;
+    white-space: nowrap;
 }
 
-.reviews-track:hover {
-    animation-play-state: paused;
+.quote-item {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-light);
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+    display: inline-block;
+    min-width: 300px;
+    text-align: center;
 }
 
-@keyframes slideReviews {
+@keyframes scrollQuotes {
     0% {
         transform: translateX(0);
     }
     100% {
         transform: translateX(-50%);
     }
-}
-
-.review-card {
-    background: linear-gradient(135deg, var(--text-light) 0%, var(--soft-gray) 100%);
-    border-radius: 15px;
-    padding: var(--space-lg);
-    min-width: 320px;
-    max-width: 320px;
-    flex-shrink: 0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.review-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-red), var(--primary-blue), var(--accent-gold));
-}
-
-.review-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-    border-color: var(--primary-red);
-}
-
-.review-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-}
-
-.review-avatar {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.3rem;
-    font-family: var(--font-serif);
-    box-shadow: var(--shadow);
-    text-transform: uppercase;
-}
-
-.review-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.review-info .name {
-    font-weight: 700;
-    color: var(--text-dark);
-    font-size: 1.1rem;
-    margin-bottom: 2px;
-}
-
-.review-info .rating {
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    letter-spacing: 1px;
-}
-
-.review-card p {
-    font-style: italic;
-    color: var(--text-medium);
-    line-height: 1.6;
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: var(--space-md);
-}
-
-.review-card p::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -5px;
-    font-size: 2rem;
-    color: var(--primary-red);
-    font-family: var(--font-serif);
-    font-weight: 900;
-    line-height: 1;
-}
-
-.review-card p::after {
-    content: '"';
-    color: var(--primary-red);
-    font-size: 1.2rem;
-    font-family: var(--font-serif);
 }
 
 /* ===== FOOTER ===== */
@@ -1084,6 +1010,14 @@ p {
 }
 
 .credentials {
+    color: var(--primary-blue);
+    margin-bottom: var(--space-xl);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.coaching-description {
     color: var(--primary-blue);
     margin-bottom: var(--space-xl);
     font-size: 1rem;

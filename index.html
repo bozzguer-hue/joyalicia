@@ -19,7 +19,7 @@
     <link rel="icon" href="assets/Logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,13 +28,13 @@
         <div class="container header-content">
             <div class="logo-area">
                 <a href="#" class="logo" aria-label="Joy Alicia home">Joy Alicia</a>
-                <span class="header-tagline">Author, Podcaster, Comedian, Dating Coach</span>
             </div>
             <nav class="main-nav" aria-label="Primary">
                 <ul>
                     <li><a href="#book">Book</a></li>
                     <li><a href="#podcast">Podcast</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#media">Media</a></li>
                     <li><a href="#dating-coach">Dating Coach</a></li>
                 </ul>
             </nav>
@@ -44,18 +44,17 @@
     <main>
         <section class="hero section" id="book">
             <div class="container hero-grid">
-                <div class="hero-text">
-                    <h1>SO DRUNK <span class="blue-accent">A TOOTH'S</span> GOTTA GO</h1>
-                    <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.</p>
-                    <div class="accolades">
-                        <div class="accolade">🏆 Winner — Writer's Digest Humor</div>
-                        <div class="accolade">🏅 LA Book Festival Honorable Mention</div>
-                        <div class="accolade">⭐ Readers' Favorite Finalist</div>
-                    </div>
-                    <a href="https://a.co/d/9tuAscD" class="btn btn-primary">Buy on Amazon</a>
-                </div>
                 <div class="hero-image">
                     <img src="assets/Front Cover.png" alt="Book cover for So Drunk A Tooth's Gotta Go" loading="lazy" decoding="async">
+                    <div class="award-stickers">
+                        <img src="assets/WritersDigest.png" alt="Writer's Digest Award" class="award-sticker">
+                        <img src="assets/ReadersFavorite.png" alt="Readers' Favorite Award" class="award-sticker">
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h1>Confessions, Jokes, Insights & Advice</h1>
+                    <p class="tagline">Hilarious, unapologetic essays about dating, ghosting & life's glorious disasters.</p>
+                    <a href="https://a.co/d/9tuAscD" class="btn btn-primary">Buy on Amazon</a>
                 </div>
             </div>
         </section>
@@ -64,15 +63,15 @@
             <div class="container">
                 <div class="book-details-grid">
                     <div class="book-title-column">
-                        <h2>What's inside (besides chaos)</h2>
+                        <h2>What's Inside</h2>
                     </div>
                     <div class="book-list-column">
                         <ul class="book-inside-list">
-                            <li>19 essays on hookups, ghosting, breakups & bad dates</li>
-                            <li>Time-saving dating hacks (how to stop getting ghosted)</li>
-                            <li>Travel misadventures + safety tips</li>
-                            <li>Gig-economy truths, toxic friends, and finding self-worth</li>
-                            <li>Proof that confidence is the best self-care</li>
+                            <li>Dozens of jokes & punchlines to keep you entertained</li>
+                            <li>Nearly 300 pages of standalone essays – read what interests you</li>
+                            <li>Chapters on dating, breakups, catfishes, solo travel, unbelievable rideshare encounters, standup comedy, toxic friends, bad roommates, confidence & more</li>
+                            <li>How to prevent yourself from getting ghosted</li>
+                            <li>Dating hacks that help you have great 1st dates with compatible people</li>
                         </ul>
                     </div>
                 </div>
@@ -104,8 +103,8 @@
         <section class="podcast-spotlight section" id="podcast">
             <div class="container">
                 <h2>The Worstship Podcast</h2>
-                <p class="hook">Breakups are messy. Let's laugh about it.</p>
-                <p class="short-copy">The Worstship is Joy's interview show about bad relationships and messy situationships. It's raw, witty, and surprisingly healing.</p>
+                <p class="hook">Bad relationships. Good stories.</p>
+                <p class="short-copy">The Worstship is Joy's dating and relationships interview show about bad relationships and messy situationships. It's raw, shocking and often educational.</p>
                 <div class="podcast-buttons">
                     <a href="https://open.spotify.com/show/0FHvlBlzUnuwIKQcUMqwyZ" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Listen on Spotify</a>
                     <a href="https://podcasts.apple.com/us/podcast/the-worstship/id1753793447" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Listen on Apple</a>
@@ -133,6 +132,7 @@
                     <p>She has performed stand-up comedy in California, Texas, and Oregon. Joy currently lives in southern California with her avoidantly attached dog.</p>
                     
                     <a href="https://www.instagram.com/j_o_why/" class="follow-link" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
+                    <a href="https://www.tiktok.com/@j_o_why" class="follow-link" target="_blank" rel="noopener noreferrer">Follow on TikTok</a>
                 </div>
             </div>
         </section>
@@ -140,129 +140,17 @@
         <section class="reviews section">
             <div class="container">
                 <h2>Readers Are Obsessed</h2>
-                <div class="reviews-carousel">
-                    <div class="reviews-track">
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">N</div>
-                                <div class="review-info">
-                                    <span class="name">N.N.</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Joy Alicia's So Drunk A Tooth's Gotta Go is a fearless, funny, and refreshingly real collection of essays that reads like a heart-to-heart with your boldest, wisest, and most brutally honest friend. It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">W</div>
-                                <div class="review-info">
-                                    <span class="name">Wallace George</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Super witty. An Oscar Wilde for the gig economy and online dating. So Drunk A Tooth's Gotta Go is one of the most entertaining books I've ever read. It's fun, wild, and informative. It was hard for me to put this book down.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">A</div>
-                                <div class="review-info">
-                                    <span class="name">Amanda P</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Joy Alicia's writing is razor-sharp, deeply vulnerable, and charming. Her humor, wisdom, and unapologetic honesty make this book a raw, witty portal for women to connect over common challenges. I've literally NEVER LAUGHED OUT LOUD WHILE READING! PLEASE BUY, YOU WON'T REGRET IT!</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">n</div>
-                                <div class="review-info">
-                                    <span class="name">nightfire</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>A hilarious survival guide for modern life. Joy Alicia delivers raw truths with punchline precision, turning chaotic life moments into deeply relatable lessons and laugh-out-loud stories. Bold, insightful, and packed with life wisdom.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">H</div>
-                                <div class="review-info">
-                                    <span class="name">Hannah Lindley</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>This is a riotous, unfiltered take on modern chaos—from dating app disasters to gig economy survival. Her stand-up comic timing shines in essays that balance cringeworthy honesty with laugh-so-hard-you-snort moments. Perfect for anyone who's ever ugly-cried over a ghosting... then laughed about it weeks later.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">C</div>
-                                <div class="review-info">
-                                    <span class="name">Cinthia Dycus</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>After reading So Drunk A Tooth's Gotta Go, I'm convinced my online dating experiences won't be miserable. The advice in the 'Dating Hacks' chapter is superb. Joy's stories are the best. I didn't know I would laugh so much. I will be getting a copy for all my single friends.</p>
-                        </div>
-                        <!-- Duplicate set for seamless loop -->
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">N</div>
-                                <div class="review-info">
-                                    <span class="name">N.N.</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Joy Alicia's So Drunk A Tooth's Gotta Go is a fearless, funny, and refreshingly real collection of essays that reads like a heart-to-heart with your boldest, wisest, and most brutally honest friend. It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">W</div>
-                                <div class="review-info">
-                                    <span class="name">Wallace George</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Super witty. An Oscar Wilde for the gig economy and online dating. So Drunk A Tooth's Gotta Go is one of the most entertaining books I've ever read. It's fun, wild, and informative. It was hard for me to put this book down.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">A</div>
-                                <div class="review-info">
-                                    <span class="name">Amanda P</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>Joy Alicia's writing is razor-sharp, deeply vulnerable, and charming. Her humor, wisdom, and unapologetic honesty make this book a raw, witty portal for women to connect over common challenges. I've literally NEVER LAUGHED OUT LOUD WHILE READING! PLEASE BUY, YOU WON'T REGRET IT!</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">n</div>
-                                <div class="review-info">
-                                    <span class="name">nightfire</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>A hilarious survival guide for modern life. Joy Alicia delivers raw truths with punchline precision, turning chaotic life moments into deeply relatable lessons and laugh-out-loud stories. Bold, insightful, and packed with life wisdom.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">H</div>
-                                <div class="review-info">
-                                    <span class="name">Hannah Lindley</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>This is a riotous, unfiltered take on modern chaos—from dating app disasters to gig economy survival. Her stand-up comic timing shines in essays that balance cringeworthy honesty with laugh-so-hard-you-snort moments. Perfect for anyone who's ever ugly-cried over a ghosting... then laughed about it weeks later.</p>
-                        </div>
-                        <div class="review-card">
-                            <div class="review-header">
-                                <div class="review-avatar">C</div>
-                                <div class="review-info">
-                                    <span class="name">Cinthia Dycus</span>
-                                    <span class="rating">★★★★★</span>
-                                </div>
-                            </div>
-                            <p>After reading So Drunk A Tooth's Gotta Go, I'm convinced my online dating experiences won't be miserable. The advice in the 'Dating Hacks' chapter is superb. Joy's stories are the best. I didn't know I would laugh so much. I will be getting a copy for all my single friends.</p>
-                        </div>
+                <div class="short-quotes-marquee">
+                    <div class="marquee-track">
+                        <div class="quote-item">"Brilliant from the very first paragraph! Hilarious and heartfelt."</div>
+                        <div class="quote-item">"It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down."</div>
+                        <div class="quote-item">"A perfect balance of humor and emotional depth. Hilarious and surprisingly useful."</div>
+                        <div class="quote-item">"A refreshing perspective and a delightful mix of comedy and wisdom."</div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="quote-item">"Brilliant from the very first paragraph! Hilarious and heartfelt."</div>
+                        <div class="quote-item">"It's equal parts memoir, therapy session, and comedy special—relatable, empowering, and impossible to put down."</div>
+                        <div class="quote-item">"A perfect balance of humor and emotional depth. Hilarious and surprisingly useful."</div>
+                        <div class="quote-item">"A refreshing perspective and a delightful mix of comedy and wisdom."</div>
                     </div>
                 </div>
             </div>
@@ -273,13 +161,13 @@
         <div class="container footer-content">
             <div class="dating-coach-section">
                 <h3>Ready for Better Dates?</h3>
-                <p class="value-prop">Join <strong>Online Dating Savior</strong> and transform your dating life. No more endless swiping, awkward conversations, or disappointing dates.</p>
+                <p class="value-prop">Online Dating Savior transforms your online or offline dating life. No more endless swiping, matches that go nowhere, or disappointing first dates.</p>
                 <div class="benefits-list">
                     <span class="benefit">✨ Better matches</span>
                     <span class="benefit">💬 Great conversations</span>
                     <span class="benefit">❤️ Amazing first dates</span>
                 </div>
-                <p class="credentials">Created by Joy, who turned 10,000 Tinder matches into dating wisdom.</p>
+                <p class="coaching-description">Let's discuss how I can help you enjoy online dating and yield great results.</p>
                 
                 <form class="dating-coach-form" action="/api/form-proxy" method="POST" style="display: none;">
                     <div class="form-container">
