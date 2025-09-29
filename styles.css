@@ -513,19 +513,21 @@ p {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0.8;
 }
 
 .carousel-arrow:hover {
     background: var(--primary-blue);
     transform: translateY(-50%) scale(1.1);
+    opacity: 1;
 }
 
 .carousel-prev {
-    left: -25px;
+    left: 10px;
 }
 
 .carousel-next {
-    right: -25px;
+    right: 10px;
 }
 
 .quote-text {
@@ -1795,20 +1797,10 @@ p {
         width: 40px;
         height: 40px;
         font-size: 20px;
-    }
-    
-    .carousel-prev {
-        left: -20px;
+        left: 5px;
     }
     
     .carousel-next {
-        right: -20px;
-    }
-    
-    /* Hide carousel arrows on very small screens */
-    @media (max-width: 480px) {
-        .carousel-arrow {
-            display: none;
-        }
+        right: 5px;
     }
 }
