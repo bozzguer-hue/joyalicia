@@ -958,22 +958,22 @@ p {
 .marquee-track {
     display: flex;
     gap: var(--space-lg);
-    animation: scrollQuotes 20s linear infinite;
+    animation: scrollQuotes 12s linear infinite;
     white-space: nowrap;
 }
 
 .quote-item {
     font-family: "Futura PT", "Futura", "Poppins", "Nunito Sans", Arial, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-style: normal;
     color: var(--primary-blue);
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
     background: rgba(255, 255, 255, 0.95);
     border-radius: 25px;
     border: 2px solid var(--primary-red);
     flex-shrink: 0;
     display: inline-block;
-    min-width: 300px;
+    min-width: 250px;
     text-align: center;
     font-weight: 600;
 }
@@ -1708,9 +1708,9 @@ p {
     
     /* Marquee responsive */
     .quote-item {
-        min-width: 280px;
-        font-size: 1rem;
-        padding: var(--space-sm) var(--space-md);
+        min-width: 220px;
+        font-size: 0.9rem;
+        padding: var(--space-xs) var(--space-sm);
     }
     
     /* Modal responsive styles */
