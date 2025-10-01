@@ -958,7 +958,7 @@ p {
 .marquee-track {
     display: flex;
     gap: var(--space-lg);
-    animation: scrollQuotes 12s linear infinite;
+    animation: scrollQuotes 10s linear infinite;
     white-space: nowrap;
 }
 
