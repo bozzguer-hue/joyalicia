@@ -56,6 +56,7 @@ body {
     color: var(--text-dark);
     background-color: var(--warm-cream);
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 .container {
@@ -71,7 +72,13 @@ img, svg {
 }
 
 .podcast-embed iframe {
-    max-width: 100%;
+    width: 100%;
+    max-width: 652px;
+    height: 450px;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -171,7 +178,7 @@ p {
 
 .logo {
     font-family: "Futura PT", "Futura", "Poppins", "Nunito Sans", Arial, sans-serif;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--primary-red);
     text-decoration: none;
@@ -732,8 +739,8 @@ p {
 }
 
 .podcast-embed iframe {
-    width: 652px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 652px;
     height: 450px;
     border: none;
     border-radius: 10px;
