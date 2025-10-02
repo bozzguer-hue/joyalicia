@@ -801,6 +801,7 @@ p {
     background: var(--text-light);
     position: relative;
     padding: var(--space-lg) 0;
+    overflow: hidden;
 }
 
 .about-joy .container {
@@ -814,13 +815,23 @@ p {
     content: '';
     position: absolute;
     top: -20%;
-    right: -10%;
+    right: -8%;
     width: 40%;
     height: 140%;
     background: linear-gradient(45deg, var(--primary-red), var(--primary-blue));
     opacity: 0.05;
     transform: rotate(15deg);
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .about-joy::before {
+        width: 60%;
+        height: 110%;
+        top: -5%;
+        right: -10%;
+        transform: rotate(10deg);
+    }
 }
 
 .about-joy-image {
