@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F1627;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B5A70;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main circle background -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGradient)"/>
+  
+  <!-- Sparkle accent (top right) -->
+  <path d="M 48 16 L 49 18 L 51 19 L 49 20 L 48 22 L 47 20 L 45 19 L 47 18 Z" fill="#F4C430" opacity="0.9"/>
+  
+  <!-- Initials "JA" -->
+  <text x="32" y="42" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#FDF0E7" text-anchor="middle" letter-spacing="1">JA</text>
+  
+  <!-- Small heart accent (bottom left) -->
+  <path d="M 18 48 C 18 47 18.5 46.5 19 46.5 C 19.5 46.5 20 47 20 47.5 C 20 47 20.5 46.5 21 46.5 C 21.5 46.5 22 47 22 48 C 22 49 20 51 20 51 C 20 51 18 49 18 48 Z" fill="#F4C430" opacity="0.8"/>
+</svg>
